@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn4cnbbx6ivon"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_jcsjg"]
+[ext_resource type="Texture2D" uid="uid://cre0blo5wte0n" path="res://icon.svg" id="2_16keq"]
+[ext_resource type="PackedScene" uid="uid://dh3jyygo60srt" path="res://scenes/mop/mop.tscn" id="3_2366c"]
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_jcsjg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_16keq")
+
+[node name="Mop" parent="." instance=ExtResource("3_2366c")]
+position = Vector2(-3, 86)
