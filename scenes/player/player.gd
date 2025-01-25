@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var humid_steps_player = $HumidStepsPlayer
 @onready var slip_steps_player = $SlipSetpsPlayer
 @onready var step_timer = $StepWait
+@onready var no_water_player = $NoWater
 #endregion 
 
 #region attributes
@@ -95,7 +96,11 @@ func _physics_process(delta: float) -> void:
 	# -------------------------
 	# water level linearly decreases as distance_travelled increases
 	distance_travelled += velocity.length() * delta
+	var water_just_empty = false if water_level == 0 else true
 	water_level = clamp(inverse_lerp(WATER_DISTANCE, 0.0, distance_travelled) * 100.0, 0.0, 100.0)
+	if water_level == 0 and water_just_empty:
+		no_water_player.play()
+		
 	update_acceleration()
 	
 	# -------------------------------------

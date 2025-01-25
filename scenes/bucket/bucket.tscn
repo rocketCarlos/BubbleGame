@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhn4uid5as0x1"]
+[gd_scene load_steps=5 format=3 uid="uid://bhn4uid5as0x1"]
 
 [ext_resource type="Texture2D" uid="uid://cre0blo5wte0n" path="res://icon.svg" id="1_qwm3b"]
 [ext_resource type="Script" path="res://scenes/bucket/bucket.gd" id="2_hwl65"]
+[ext_resource type="AudioStream" uid="uid://ffgmh6cbwxn3" path="res://assets/sound/events/mojar fregona.ogg" id="3_0l1mo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7fgfa"]
 radius = 133.634
@@ -16,5 +17,9 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_7fgfa")
+
+[node name="Refill" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0l1mo")
+volume_db = 6.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

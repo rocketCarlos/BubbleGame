@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bn4cnbbx6ivon"]
+[gd_scene load_steps=24 format=3 uid="uid://bn4cnbbx6ivon"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_jcsjg"]
 [ext_resource type="Texture2D" uid="uid://cde1p035fh1lt" path="res://assets/sprites/IMG_1927.png" id="2_msrg1"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://dbhw7wufrc8cq" path="res://assets/sound/steps/humid_steps/Paso humedo 3.ogg" id="16_mfbqo"]
 [ext_resource type="AudioStream" uid="uid://cpqxcbxtbv4g8" path="res://assets/sound/steps/slip/Derrape 1.ogg" id="17_pgiy3"]
 [ext_resource type="AudioStream" uid="uid://de08e7q8fgw6a" path="res://assets/sound/steps/slip/Derrape 2.ogg" id="18_kk7ha"]
+[ext_resource type="AudioStream" uid="uid://3wmsq6rn68fw" path="res://assets/sound/events/Sin agua.ogg" id="19_6rh45"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6itug"]
 animations = [{
@@ -111,9 +112,8 @@ motion_mode = 1
 script = ExtResource("1_jcsjg")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-visible = false
 position = Vector2(20.5, 135.5)
-polygon = PackedVector2Array(-166.5, -124.5, -171.5, 107.5, -82.5, 145.5, 85.5, 137.5, 141.5, 97.5, 0.5, -37.5, -114.5, -129.5)
+polygon = PackedVector2Array(-65.5, -84.5, -31.5, -178.5, 6.5, -178.5, 36.5, -85.5)
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.33, 0.33)
@@ -134,6 +134,9 @@ stream = SubResource("AudioStreamRandomizer_q8gxc")
 
 [node name="SlipSetpsPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_o71th")
+
+[node name="NoWater" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_6rh45")
 
 [node name="StepWait" type="Timer" parent="."]
 wait_time = 0.1
