@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bn4cnbbx6ivon"]
+[gd_scene load_steps=23 format=3 uid="uid://bn4cnbbx6ivon"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_jcsjg"]
 [ext_resource type="Texture2D" uid="uid://cde1p035fh1lt" path="res://assets/sprites/IMG_1927.png" id="2_msrg1"]
@@ -16,6 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://bg8aci02sxmb3" path="res://assets/sound/steps/humid_steps/Paso humedo 1.ogg" id="14_yjias"]
 [ext_resource type="AudioStream" uid="uid://c5mtc7tg262oa" path="res://assets/sound/steps/humid_steps/Paso humedo 2.ogg" id="15_4yudi"]
 [ext_resource type="AudioStream" uid="uid://dbhw7wufrc8cq" path="res://assets/sound/steps/humid_steps/Paso humedo 3.ogg" id="16_mfbqo"]
+[ext_resource type="AudioStream" uid="uid://cpqxcbxtbv4g8" path="res://assets/sound/steps/slip/Derrape 1.ogg" id="17_pgiy3"]
+[ext_resource type="AudioStream" uid="uid://de08e7q8fgw6a" path="res://assets/sound/steps/slip/Derrape 2.ogg" id="18_kk7ha"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6itug"]
 animations = [{
@@ -98,6 +100,11 @@ stream_0/stream = ExtResource("11_67ys0")
 stream_1/stream = ExtResource("12_s5apm")
 stream_2/stream = ExtResource("13_7ot7t")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o71th"]
+streams_count = 2
+stream_0/stream = ExtResource("17_pgiy3")
+stream_1/stream = ExtResource("18_kk7ha")
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
 motion_mode = 1
@@ -124,6 +131,9 @@ stream = SubResource("AudioStreamRandomizer_j34j6")
 
 [node name="DrySetpsPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_q8gxc")
+
+[node name="SlipSetpsPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_o71th")
 
 [node name="StepWait" type="Timer" parent="."]
 wait_time = 0.1

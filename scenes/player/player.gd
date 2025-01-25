@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 @onready var dry_steps_player = $DrySetpsPlayer
 @onready var humid_steps_player = $HumidStepsPlayer
+@onready var slip_steps_player = $SlipSetpsPlayer
 @onready var step_timer = $StepWait
 #endregion 
 
@@ -68,9 +69,10 @@ func _physics_process(delta: float) -> void:
 	# -----------------------------------------
 	# manage movement
 	# -----------------------------------------
+	var force =  Vector2(0.0, 0.0)
 	if Input.is_action_pressed("accelerate"):
 		# the acceleration force input by the player
-		var force = accel * direction * delta
+		force = accel * direction * delta
 		# apply the force to velocity
 		velocity += force
 		# decide based on the slippery factor how important is the new force's
@@ -101,11 +103,17 @@ func _physics_process(delta: float) -> void:
 	# -------------------------------------
 	if not humid_steps_player.playing and velocity.length() > 0.1 and not step_wait:
 		step_wait = true
-		step_timer.start()
-		if randf() > (water_level / 100.0):
+		var wait_time = 0.1
+		# choose whether to play the slip sound or the normal steps
+		if abs(velocity.angle_to(force)) > PI/3.0 and velocity.length() > MAX_SPEED/1.3: # play slip
+			slip_steps_player.play()
+			wait_time = 1.0
+		elif randf() > (water_level / 100.0): # play steps, dry or humid
 			dry_steps_player.play()
 		else:
 			humid_steps_player.play()
+			
+		step_timer.start(wait_time)
 	
 	move_and_slide()
 
