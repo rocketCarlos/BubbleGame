@@ -17,7 +17,8 @@ func update_dirt_percentage() -> void:
 	# get dirty cells
 	dirt_percentage = (float(dirt.get_used_cells().size()) / float(get_used_cells().size()))*100.0
 
-func _on_clean(pos: Vector2) -> void:
-	dirt.erase_cell( pos / dirt.tile_set.tile_size.x )
+func _on_clean(cells: Array) -> void:
+	for pos in cells:
+		dirt.erase_cell( local_to_map(to_local(pos)) )
 	update_dirt_percentage()
 	

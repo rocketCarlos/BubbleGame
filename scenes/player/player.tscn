@@ -1,9 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://bn4cnbbx6ivon"]
+[gd_scene load_steps=24 format=3 uid="uid://bn4cnbbx6ivon"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_jcsjg"]
 [ext_resource type="Texture2D" uid="uid://b0t571gd6q0ru" path="res://assets/sprites/player/Frente.png" id="2_dm087"]
 [ext_resource type="Texture2D" uid="uid://c5xlha7icjd4u" path="res://assets/sprites/player/Frente2.png" id="3_3ebry"]
-[ext_resource type="PackedScene" uid="uid://dh3jyygo60srt" path="res://scenes/mop/mop.tscn" id="3_2366c"]
 [ext_resource type="Texture2D" uid="uid://thpknjgkfvy2" path="res://assets/sprites/player/Diagonal_izda2(1).png" id="4_6hvu5"]
 [ext_resource type="Texture2D" uid="uid://dss68t76h4g6n" path="res://assets/sprites/player/Diagonal_izda2.png" id="5_u4ajn"]
 [ext_resource type="Texture2D" uid="uid://w4blio28gexp" path="res://assets/sprites/player/Izda.png" id="6_5e0oq"]
@@ -123,10 +122,6 @@ polygon = PackedVector2Array(-65.5, -84.5, -31.5, -178.5, 6.5, -178.5, 36.5, -85
 sprite_frames = SubResource("SpriteFrames_6itug")
 animation = &"down"
 
-[node name="Mop" parent="." instance=ExtResource("3_2366c")]
-position = Vector2(-58, 5.00001)
-scale = Vector2(0.609375, 0.355469)
-
 [node name="HumidStepsPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_j34j6")
 
@@ -143,5 +138,30 @@ stream = ExtResource("19_6rh45")
 wait_time = 0.1
 one_shot = true
 
-[connection signal="body_entered" from="Mop" to="." method="_on_mop_body_entered"]
+[node name="CleaningPoints" type="Node2D" parent="."]
+
+[node name="Point1" type="Node2D" parent="CleaningPoints"]
+position = Vector2(0, -75)
+
+[node name="Point2" type="Node2D" parent="CleaningPoints"]
+position = Vector2(75, -75)
+
+[node name="Point3" type="Node2D" parent="CleaningPoints"]
+position = Vector2(75, 0)
+
+[node name="Point4" type="Node2D" parent="CleaningPoints"]
+position = Vector2(75, 75)
+
+[node name="Point5" type="Node2D" parent="CleaningPoints"]
+position = Vector2(0, 75)
+
+[node name="Point6" type="Node2D" parent="CleaningPoints"]
+position = Vector2(-75, 75)
+
+[node name="Point7" type="Node2D" parent="CleaningPoints"]
+position = Vector2(-75, 0)
+
+[node name="Point8" type="Node2D" parent="CleaningPoints"]
+position = Vector2(-75, -75)
+
 [connection signal="timeout" from="StepWait" to="." method="_on_step_wait_timeout"]

@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dh3jyygo60srt"]
+[gd_scene load_steps=3 format=3 uid="uid://dh3jyygo60srt"]
+
+[ext_resource type="Script" path="res://scenes/mop/mop.gd" id="1_bk7ag"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3or8"]
 size = Vector2(122, 123.259)
@@ -7,7 +9,7 @@ size = Vector2(122, 123.259)
 scale = Vector2(1, 0.210938)
 collision_layer = 0
 collision_mask = 8
+script = ExtResource("1_bk7ag")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1.41285e-06)
 shape = SubResource("RectangleShape2D_y3or8")

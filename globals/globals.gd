@@ -12,5 +12,5 @@ signal stage_cleaned
 # emitted by the player to update the water bar
 signal water_update(water_level: float)
 
-# emitted by the player to clean a tile
-signal clean(position: Vector2)
+# emitted by the player to clean tiles
+signal clean(positions: Array)

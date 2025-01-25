@@ -2,7 +2,15 @@ extends CharacterBody2D
 
 #region scene nodes
 @onready var sprite = $Sprite2D
-@onready var mop = $Mop
+@onready var mop = $CleaningPoints
+@onready var cleaning_point_1 = $CleaningPoints/Point1
+@onready var cleaning_point_2 = $CleaningPoints/Point2
+@onready var cleaning_point_3 = $CleaningPoints/Point3
+@onready var cleaning_point_4 = $CleaningPoints/Point4
+@onready var cleaning_point_5 = $CleaningPoints/Point5
+@onready var cleaning_point_6 = $CleaningPoints/Point6
+@onready var cleaning_point_7 = $CleaningPoints/Point7
+@onready var cleaning_point_8 = $CleaningPoints/Point8
 @onready var dry_steps_player = $DrySetpsPlayer
 @onready var humid_steps_player = $HumidStepsPlayer
 @onready var slip_steps_player = $SlipSetpsPlayer
@@ -43,11 +51,14 @@ var mop_positions: Dictionary = {
 	"left": Vector2(-95, 34),
 	"up_left": Vector2(-58, 5),
 }
+
+var cleaning_points : Array 
 #endregion
 
 func _ready() -> void:
 	Globals.refill.connect(_on_refill)
 	update_acceleration()
+	
 
 func _physics_process(delta: float) -> void:
 	# ---------------------------------------------
@@ -83,7 +94,7 @@ func _physics_process(delta: float) -> void:
 		sprite.play()
 	else:
 		sprite.stop()
-	mop.position = mop_positions[sprite.animation]
+	#mop.position = mop_positions[sprite.animation]
 	# -----------------------------------------
 	# manage movement
 	# -----------------------------------------
@@ -124,7 +135,17 @@ func _physics_process(delta: float) -> void:
 	# ------------------
 	# manage cleaning
 	# -------------------
-	Globals.clean.emit(mop.global_position)
+	cleaning_points = [
+		cleaning_point_1.global_position,
+		cleaning_point_2.global_position,
+		cleaning_point_3.global_position,
+		cleaning_point_4.global_position,
+		cleaning_point_5.global_position,
+		cleaning_point_6.global_position,
+		cleaning_point_7.global_position,
+		cleaning_point_8.global_position,
+		]
+	Globals.clean.emit(cleaning_points)
 	
 	# -------------------------------------
 	# manage sound
@@ -154,7 +175,7 @@ func update_acceleration() -> void:
 	slippery_factor = lerp(MIN_SLIPPERY, 1.0, water_level/100.0)
 	accel = lerp(MAX_ACCEL, MIN_ACCEL, water_level/100.0)
 	deaccel = lerp(MAX_DEACCEL, MIN_DEACCEL, water_level/100.0)
-	
+
 #endregion
 
 #region signal functions
@@ -164,8 +185,5 @@ func _on_refill() -> void:
 	
 func _on_step_wait_timeout() -> void:
 	step_wait = false
-	
-func _on_mop_body_entered(body: Node2D) -> void:
-	print(body)
 	
 #endregion
