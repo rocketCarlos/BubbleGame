@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://do2n3ncfa2yr2"]
+
+[ext_resource type="Script" path="res://scenes/progression_bar/progress_bar.gd" id="1_6kb3l"]
+[ext_resource type="Texture2D" uid="uid://d3px73g4xt4oh" path="res://assets/sprites/Barra_Vacia.png" id="1_bafkm"]
+[ext_resource type="Texture2D" uid="uid://cnercw736pg34" path="res://assets/sprites/Barra_Limpia.png" id="2_og68l"]
+[ext_resource type="Texture2D" uid="uid://b0dhioioxwe68" path="res://assets/sprites/Fregona.png" id="4_hjp00"]
+[ext_resource type="Texture2D" uid="uid://dy6pwmp43apve" path="res://assets/sprites/Burbujas.png" id="5_jkiqw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kp65n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hjp00")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6iays"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jkiqw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ProgressBar" type="TextureProgressBar"]
+offset_right = 1725.0
+offset_bottom = 69.0
+texture_under = ExtResource("1_bafkm")
+texture_progress = ExtResource("2_og68l")
+script = ExtResource("1_6kb3l")
+
+[node name="Mop" type="AnimatedSprite2D" parent="."]
+position = Vector2(30, -81)
+sprite_frames = SubResource("SpriteFrames_kp65n")
+
+[node name="Bubbles" type="AnimatedSprite2D" parent="."]
+position = Vector2(1699, -87.055)
+sprite_frames = SubResource("SpriteFrames_6iays")
