@@ -1,16 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dh3jyygo60srt"]
-
-[ext_resource type="Texture2D" uid="uid://cre0blo5wte0n" path="res://icon.svg" id="1_henqm"]
+[gd_scene load_steps=2 format=3 uid="uid://dh3jyygo60srt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3or8"]
 size = Vector2(122, 123.259)
 
-[node name="Mop" type="Sprite2D"]
+[node name="Mop" type="Area2D"]
 scale = Vector2(1, 0.210938)
-texture = ExtResource("1_henqm")
+collision_layer = 0
+collision_mask = 8
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1.41285e-06)
 shape = SubResource("RectangleShape2D_y3or8")

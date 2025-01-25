@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 #region scene nodes
 @onready var sprite = $Sprite2D
+@onready var mop = $Mop
 @onready var dry_steps_player = $DrySetpsPlayer
 @onready var humid_steps_player = $HumidStepsPlayer
 @onready var slip_steps_player = $SlipSetpsPlayer
@@ -31,6 +32,17 @@ var water_level: float = 100.0
 var distance_travelled: float = 0.0
 
 var step_wait: bool = false
+
+var mop_positions: Dictionary = {
+	"up": Vector2(0, -6),
+	"up_right": Vector2(46, 12),
+	"right": Vector2(63, 35),
+	"down_right": Vector2(51, 62),
+	"down": Vector2(-2, 73),
+	"down_left": Vector2(-56, 63),
+	"left": Vector2(-95, 34),
+	"up_left": Vector2(-58, 5),
+}
 #endregion
 
 func _ready() -> void:
@@ -66,7 +78,8 @@ func _physics_process(delta: float) -> void:
 			sprite.animation = "down_left"
 	elif abs(angle) < (8.0*step):
 		sprite.animation = "left"
-
+	
+	mop.position = mop_positions[sprite.animation]
 	# -----------------------------------------
 	# manage movement
 	# -----------------------------------------
@@ -103,6 +116,11 @@ func _physics_process(delta: float) -> void:
 		
 	Globals.water_update.emit(water_level)
 	update_acceleration()
+	
+	# ------------------
+	# manage cleaning
+	# -------------------
+	Globals.clean.emit(mop.global_position)
 	
 	# -------------------------------------
 	# manage sound
@@ -142,4 +160,8 @@ func _on_refill() -> void:
 	
 func _on_step_wait_timeout() -> void:
 	step_wait = false
+	
+func _on_mop_body_entered(body: Node2D) -> void:
+	print(body)
+	
 #endregion
