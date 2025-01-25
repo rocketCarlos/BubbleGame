@@ -14,3 +14,6 @@ signal water_update(water_level: float)
 
 # emitted by the player to clean tiles
 signal clean(positions: Array)
+
+# called by things that mess up tiles
+signal mess(positions: Array)

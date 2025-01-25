@@ -8,6 +8,7 @@ var dirt_percentage: float = 0
 func _ready() -> void:
 	update_dirt_percentage()
 	Globals.clean.connect(_on_clean)
+	Globals.mess.connect(_on_mess)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -21,4 +22,8 @@ func _on_clean(cells: Array) -> void:
 	for pos in cells:
 		dirt.erase_cell( local_to_map(to_local(pos)) )
 	update_dirt_percentage()
+	
+func _on_mess(cells: Array) -> void:
+	for pos in cells:
+		dirt.set_cell(local_to_map(to_local(pos)), 0, Vector2i(0,0))
 	
