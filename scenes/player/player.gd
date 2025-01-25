@@ -79,6 +79,10 @@ func _physics_process(delta: float) -> void:
 	elif abs(angle) < (8.0*step):
 		sprite.animation = "left"
 	
+	if velocity.length() > 0:
+		sprite.play()
+	else:
+		sprite.stop()
 	mop.position = mop_positions[sprite.animation]
 	# -----------------------------------------
 	# manage movement
