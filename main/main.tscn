@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://bto4buubhbllt"]
+[gd_scene load_steps=7 format=3 uid="uid://bto4buubhbllt"]
 
 [ext_resource type="PackedScene" uid="uid://bn4cnbbx6ivon" path="res://scenes/player/player.tscn" id="1_32a8h"]
+[ext_resource type="PackedScene" uid="uid://kkbgeyekblat" path="res://scenes/floor/floor.tscn" id="1_jy4td"]
 [ext_resource type="PackedScene" uid="uid://bhn4uid5as0x1" path="res://scenes/bucket/bucket.tscn" id="2_kmb3j"]
 [ext_resource type="PackedScene" uid="uid://do2n3ncfa2yr2" path="res://scenes/progression_bar/progess_bar.tscn" id="3_1gxha"]
 [ext_resource type="PackedScene" uid="uid://bpf78h7wx1uy3" path="res://scenes/clock/clock.tscn" id="3_6pisg"]
 [ext_resource type="PackedScene" uid="uid://ijedeehk4gbp" path="res://scenes/water_bar/water_bar.tscn" id="4_mxo2a"]
 
 [node name="Main" type="Node2D"]
+
+[node name="Floor" parent="." instance=ExtResource("1_jy4td")]
 
 [node name="Player" parent="." instance=ExtResource("1_32a8h")]
 position = Vector2(430, 354)
@@ -52,14 +55,15 @@ scale = Vector2(0.475, 0.475)
 
 [node name="WaterBar" parent="Player/HUD/Container" instance=ExtResource("4_mxo2a")]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 20.0
-offset_top = -172.0
-offset_right = 89.0
-offset_bottom = 1553.0
-grow_vertical = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = -327.0
+offset_right = 90.0
+offset_bottom = 1398.0
+grow_vertical = 0
+scale = Vector2(0.45, 0.18)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true

@@ -26,7 +26,7 @@ const MIN_SLIPPERY: float = 0.96
 var slippery_factor: float = 1.0
 
 # the distance to be covered before losing all water
-const WATER_DISTANCE: float = 10000.0
+const WATER_DISTANCE: float = 5000.0
 var water_level: float = 100.0
 var distance_travelled: float = 0.0
 

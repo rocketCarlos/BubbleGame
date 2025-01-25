@@ -13,5 +13,5 @@ fill_mode = 3
 texture_under = ExtResource("1_72aqg")
 texture_progress = ExtResource("1_72aqg")
 tint_under = Color(0.658824, 0.658824, 0.658824, 0.243137)
-tint_progress = Color(0, 0.933333, 1, 1)
+tint_progress = Color(0.2924, 0.420827, 0.43, 1)
 script = ExtResource("2_yp4xf")
