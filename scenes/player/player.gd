@@ -1,5 +1,10 @@
 extends CharacterBody2D
 
+#region scene nodes
+@onready var sprite = $Sprite2D
+#endregion 
+
+#region attributes
 const MAX_SPEED = 300.0
 
 const MAX_ACCEL: float = 1000.0
@@ -19,7 +24,7 @@ var slippery_factor: float = 1.0
 const WATER_DISTANCE: float = 10000.0
 var water_level: float = 100.0
 var distance_travelled: float = 0.0
-
+#endregion
 
 func _ready() -> void:
 	Globals.refill.connect(_on_refill)
@@ -27,12 +32,34 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# ---------------------------------------------
-	# rotate the player to point towards the mouse
+	# manage sprite rotation
 	# ---------------------------------------------
 	var mouse_position = get_global_mouse_position()
 	var direction = (mouse_position - global_position).normalized()
-	rotation = Vector2(0.0, 1.0).angle_to(direction)
+	var angle = direction.angle_to(Vector2(1.0, 0.0))
 	
+	var step = (2.0*PI)/(8.0*2.0)
+	
+	if abs(angle) < step: # looking right
+		sprite.animation = "right"
+	elif abs(angle) < (3.0*step):
+		if angle > 0.0:
+			sprite.animation = "up_right"
+		else:
+			sprite.animation = "down_right"
+	elif abs(angle) < (5.0*step):
+		if angle > 0.0:
+			sprite.animation = "up"
+		else:
+			sprite.animation = "down"
+	elif abs(angle) < (7.0*step):
+		if angle > 0.0:
+			sprite.animation = "up_left"
+		else:
+			sprite.animation = "down_left"
+	elif abs(angle) < (8.0*step):
+		sprite.animation = "left"
+
 	# -----------------------------------------
 	# manage movement
 	# -----------------------------------------
@@ -62,7 +89,6 @@ func _physics_process(delta: float) -> void:
 	# water level linearly decreases as distance_travelled increases
 	distance_travelled += velocity.length() * delta
 	water_level = clamp(inverse_lerp(WATER_DISTANCE, 0.0, distance_travelled) * 100.0, 0.0, 100.0)
-	print(distance_travelled, " ", water_level)
 	update_acceleration()
 	
 	move_and_slide()
