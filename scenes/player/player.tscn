@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bn4cnbbx6ivon"]
+[gd_scene load_steps=20 format=3 uid="uid://bn4cnbbx6ivon"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_jcsjg"]
 [ext_resource type="Texture2D" uid="uid://cde1p035fh1lt" path="res://assets/sprites/IMG_1927.png" id="2_msrg1"]
@@ -10,6 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://gkcr52d7k57j" path="res://assets/sprites/IMG_1928.png" id="7_rhsn1"]
 [ext_resource type="Texture2D" uid="uid://dshyr80ft58xp" path="res://assets/sprites/IMG_1930.png" id="8_vcq8g"]
 [ext_resource type="Texture2D" uid="uid://bkuatpo7re5mu" path="res://assets/sprites/IMG_1931.png" id="9_aa778"]
+[ext_resource type="AudioStream" uid="uid://dp5hytyrbespa" path="res://assets/sound/steps/dry_steps/Paso.ogg" id="11_67ys0"]
+[ext_resource type="AudioStream" uid="uid://c3tm3m4ewy7op" path="res://assets/sound/steps/dry_steps/Paso 2.ogg" id="12_s5apm"]
+[ext_resource type="AudioStream" uid="uid://djokxebvnx188" path="res://assets/sound/steps/dry_steps/Paso 3.ogg" id="13_7ot7t"]
+[ext_resource type="AudioStream" uid="uid://bg8aci02sxmb3" path="res://assets/sound/steps/humid_steps/Paso humedo 1.ogg" id="14_yjias"]
+[ext_resource type="AudioStream" uid="uid://c5mtc7tg262oa" path="res://assets/sound/steps/humid_steps/Paso humedo 2.ogg" id="15_4yudi"]
+[ext_resource type="AudioStream" uid="uid://dbhw7wufrc8cq" path="res://assets/sound/steps/humid_steps/Paso humedo 3.ogg" id="16_mfbqo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6itug"]
 animations = [{
@@ -78,6 +84,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j34j6"]
+random_pitch = 2.0
+streams_count = 3
+stream_0/stream = ExtResource("14_yjias")
+stream_1/stream = ExtResource("15_4yudi")
+stream_2/stream = ExtResource("16_mfbqo")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_q8gxc"]
+random_pitch = 2.0
+streams_count = 3
+stream_0/stream = ExtResource("11_67ys0")
+stream_1/stream = ExtResource("12_s5apm")
+stream_2/stream = ExtResource("13_7ot7t")
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
 motion_mode = 1
@@ -98,3 +118,15 @@ offset = Vector2(-308.905, -430.54)
 [node name="Mop" parent="." instance=ExtResource("3_2366c")]
 visible = false
 position = Vector2(62, 191)
+
+[node name="HumidStepsPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_j34j6")
+
+[node name="DrySetpsPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_q8gxc")
+
+[node name="StepWait" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="StepWait" to="." method="_on_step_wait_timeout"]

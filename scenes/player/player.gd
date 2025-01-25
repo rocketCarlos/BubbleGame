@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 #region scene nodes
 @onready var sprite = $Sprite2D
+@onready var dry_steps_player = $DrySetpsPlayer
+@onready var humid_steps_player = $HumidStepsPlayer
+@onready var step_timer = $StepWait
 #endregion 
 
 #region attributes
@@ -24,6 +27,8 @@ var slippery_factor: float = 1.0
 const WATER_DISTANCE: float = 10000.0
 var water_level: float = 100.0
 var distance_travelled: float = 0.0
+
+var step_wait: bool = false
 #endregion
 
 func _ready() -> void:
@@ -91,6 +96,17 @@ func _physics_process(delta: float) -> void:
 	water_level = clamp(inverse_lerp(WATER_DISTANCE, 0.0, distance_travelled) * 100.0, 0.0, 100.0)
 	update_acceleration()
 	
+	# -------------------------------------
+	# manage sound
+	# -------------------------------------
+	if not humid_steps_player.playing and velocity.length() > 0.1 and not step_wait:
+		step_wait = true
+		step_timer.start()
+		if randf() > (water_level / 100.0):
+			dry_steps_player.play()
+		else:
+			humid_steps_player.play()
+	
 	move_and_slide()
 
 #region utility functions
@@ -108,4 +124,7 @@ func update_acceleration() -> void:
 #region signal functions
 func _on_refill() -> void:
 	water_level = 100.0
+	
+func _on_step_wait_timeout() -> void:
+	step_wait = false
 #endregion
