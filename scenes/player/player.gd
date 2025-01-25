@@ -15,6 +15,7 @@ extends CharacterBody2D
 @onready var humid_steps_player = $HumidStepsPlayer
 @onready var slip_steps_player = $SlipSetpsPlayer
 @onready var step_timer = $StepWait
+@onready var bubble_timer = $BubbleWait
 @onready var no_water_player = $NoWater
 #endregion 
 
@@ -53,6 +54,9 @@ var mop_positions: Dictionary = {
 }
 
 var cleaning_points : Array 
+
+@export var bubble_scene: PackedScene
+var buble_wait: bool = false
 #endregion
 
 func _ready() -> void:
@@ -92,6 +96,31 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity.length() > 0:
 		sprite.play()
+		# spawn bubbles
+		if randf() < water_level/100.0 and not buble_wait:
+			buble_wait = true
+			bubble_timer.start()
+			var bubble = bubble_scene.instantiate()
+			match sprite.animation:
+				"up":
+					bubble.global_position = cleaning_point_5.global_position
+				"up_right":
+					bubble.global_position = cleaning_point_6.global_position
+				"right":
+					bubble.global_position = cleaning_point_6.global_position
+				"down_right":
+					bubble.global_position = cleaning_point_8.global_position
+				"down":
+					bubble.global_position = cleaning_point_1.global_position
+				"down_left":
+					bubble.global_position = cleaning_point_2.global_position
+				"left":
+					bubble.global_position = cleaning_point_4.global_position
+				"up_left":
+					bubble.global_position = cleaning_point_4.global_position
+			
+			bubble.scale = Vector2(0.05, 0.05)
+			call_deferred("add_sibling", bubble)
 	else:
 		sprite.stop()
 	#mop.position = mop_positions[sprite.animation]
@@ -185,5 +214,7 @@ func _on_refill() -> void:
 	
 func _on_step_wait_timeout() -> void:
 	step_wait = false
-	
+
+func _on_bubble_wait_timeout() -> void:
+	buble_wait = false
 #endregion
