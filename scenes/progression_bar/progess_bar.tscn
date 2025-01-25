@@ -29,15 +29,14 @@ animations = [{
 }]
 
 [node name="ProgressBar" type="TextureProgressBar"]
-offset_left = 192.0
-offset_top = 88.0
-offset_right = 1917.0
-offset_bottom = 157.0
+offset_right = 1725.0
+offset_bottom = 69.0
 scale = Vector2(0.425, 0.425)
 value = 77.0
 texture_under = ExtResource("1_bafkm")
 texture_progress = ExtResource("2_og68l")
 script = ExtResource("1_6kb3l")
+metadata/_edit_use_anchors_ = true
 
 [node name="Mop" type="AnimatedSprite2D" parent="."]
 position = Vector2(30, -81)

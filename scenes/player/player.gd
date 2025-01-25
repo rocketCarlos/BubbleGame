@@ -108,7 +108,7 @@ func _physics_process(delta: float) -> void:
 	# -------------------------------------
 	if not humid_steps_player.playing and velocity.length() > 0.1 and not step_wait:
 		step_wait = true
-		var wait_time = 0.1
+		var wait_time = 0.2
 		# choose whether to play the slip sound or the normal steps
 		if abs(velocity.angle_to(force)) > PI/3.0 and velocity.length() > MAX_SPEED/1.3: # play slip
 			slip_steps_player.play()

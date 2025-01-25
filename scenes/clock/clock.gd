@@ -3,7 +3,7 @@ extends TextureProgressBar
 @onready var timer = $Timer
 @onready var minute = $Minute
 
-@export var total_time = 60
+@export var total_time: int = 60
 var rotation_offset = 2.6
 
 # Called when the node enters the scene tree for the first time.

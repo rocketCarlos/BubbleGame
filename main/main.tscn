@@ -1,12 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://bto4buubhbllt"]
+[gd_scene load_steps=5 format=3 uid="uid://bto4buubhbllt"]
 
 [ext_resource type="PackedScene" uid="uid://bn4cnbbx6ivon" path="res://scenes/player/player.tscn" id="1_32a8h"]
 [ext_resource type="PackedScene" uid="uid://bhn4uid5as0x1" path="res://scenes/bucket/bucket.tscn" id="2_kmb3j"]
+[ext_resource type="PackedScene" uid="uid://do2n3ncfa2yr2" path="res://scenes/progression_bar/progess_bar.tscn" id="3_1gxha"]
+[ext_resource type="PackedScene" uid="uid://bpf78h7wx1uy3" path="res://scenes/clock/clock.tscn" id="3_6pisg"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_32a8h")]
-position = Vector2(343, 293)
+position = Vector2(430, 354)
+
+[node name="HUD" type="CanvasLayer" parent="Player"]
+
+[node name="Container" type="Control" parent="Player/HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" parent="Player/HUD/Container" instance=ExtResource("3_1gxha")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.428385
+anchor_top = 1.00463
+anchor_right = 1.42839
+anchor_bottom = 1.00463
+offset_left = -286.5
+offset_top = -69.0
+offset_right = 286.5
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Clock" parent="Player/HUD/Container" instance=ExtResource("3_6pisg")]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 209.0
+offset_bottom = 203.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.475, 0.475)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
 
 [node name="Bucket" parent="." instance=ExtResource("2_kmb3j")]
 position = Vector2(693, 295)
