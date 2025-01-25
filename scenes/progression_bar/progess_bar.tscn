@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://do2n3ncfa2yr2"]
+[gd_scene load_steps=7 format=3 uid="uid://do2n3ncfa2yr2"]
 
 [ext_resource type="Script" path="res://scenes/progression_bar/progress_bar.gd" id="1_6kb3l"]
 [ext_resource type="Texture2D" uid="uid://d3px73g4xt4oh" path="res://assets/sprites/Barra_Vacia.png" id="1_bafkm"]
-[ext_resource type="Texture2D" uid="uid://cnercw736pg34" path="res://assets/sprites/Barra_Limpia.png" id="2_og68l"]
 [ext_resource type="Texture2D" uid="uid://b0dhioioxwe68" path="res://assets/sprites/Fregona.png" id="4_hjp00"]
 [ext_resource type="Texture2D" uid="uid://dy6pwmp43apve" path="res://assets/sprites/Burbujas.png" id="5_jkiqw"]
 
@@ -34,7 +33,9 @@ offset_bottom = 69.0
 scale = Vector2(0.425, 0.425)
 value = 77.0
 texture_under = ExtResource("1_bafkm")
-texture_progress = ExtResource("2_og68l")
+texture_progress = ExtResource("1_bafkm")
+tint_under = Color(0.66, 0.66, 0.66, 0.243137)
+tint_progress = Color(0, 1, 0, 1)
 script = ExtResource("1_6kb3l")
 metadata/_edit_use_anchors_ = true
 

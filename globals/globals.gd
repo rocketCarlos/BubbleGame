@@ -8,3 +8,6 @@ signal refill
 
 # emitted by the progress bar when the room gets 100% clean
 signal stage_cleaned
+
+# emitted by the player to update the water bar
+signal water_update(water_level: float)

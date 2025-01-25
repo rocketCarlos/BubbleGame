@@ -101,6 +101,7 @@ func _physics_process(delta: float) -> void:
 	if water_level == 0 and water_just_empty:
 		no_water_player.play()
 		
+	Globals.water_update.emit(water_level)
 	update_acceleration()
 	
 	# -------------------------------------
@@ -137,6 +138,7 @@ func update_acceleration() -> void:
 #region signal functions
 func _on_refill() -> void:
 	water_level = 100.0
+	distance_travelled = 0.0
 	
 func _on_step_wait_timeout() -> void:
 	step_wait = false

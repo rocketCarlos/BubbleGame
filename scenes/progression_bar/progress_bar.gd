@@ -14,6 +14,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	mop.position.x = lerp(mop_start, mop_end, value / 100.0)
+	tint_progress = Color(1-value/100, 1, 1-value/100)
 	if int(value) % 5 == 0:
 		if not already_flipped:
 			mop.flip_h = not mop.flip_h
