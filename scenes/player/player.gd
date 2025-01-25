@@ -18,6 +18,7 @@ var slippery_factor: float = 1.0
 var water_level: float = 100.0
 
 func _ready() -> void:
+	Globals.refill.connect(_on_refill)
 	update_acceleration()
 
 func _physics_process(delta: float) -> void:
@@ -63,6 +64,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+#region utility functions
 '''
 updates accel and deaccel depending on the water level
 '''
@@ -72,3 +74,9 @@ func update_acceleration() -> void:
 	accel = lerp(MAX_ACCEL, MIN_ACCEL, water_level/100.0)
 	deaccel = lerp(MAX_DEACCEL, MIN_DEACCEL, water_level/100.0)
 	print(accel, " ", deaccel, " ", water_level)
+#endregion
+
+#region signal functions
+func _on_refill() -> void:
+	water_level = 100.0
+#endregion
