@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://thpknjgkfvy2"
-path="res://.godot/imported/Diagonal_izda2(1).png-c0b7e65d3ba92803e2e0227a3c9bcd6c.ctex"
+uid="uid://bk7h40fe1v51y"
+path="res://.godot/imported/Diagonal_dcha_arriba.png-58c5ab78dd4f3440e112c1d369d880a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player/Diagonal_izda2(1).png"
-dest_files=["res://.godot/imported/Diagonal_izda2(1).png-c0b7e65d3ba92803e2e0227a3c9bcd6c.ctex"]
+source_file="res://assets/sprites/player/Diagonal_dcha_arriba.png"
+dest_files=["res://.godot/imported/Diagonal_dcha_arriba.png-58c5ab78dd4f3440e112c1d369d880a5.ctex"]
 
 [params]
 

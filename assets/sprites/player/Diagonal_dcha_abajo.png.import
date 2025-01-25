@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7p6j2a63vb6x"
-path="res://.godot/imported/Diagonal_dcha.png-19b91130b13957c5b78f117cf93b40c3.ctex"
+uid="uid://d2fsp6m162q5g"
+path="res://.godot/imported/Diagonal_dcha_abajo.png-9ed67550654d68628cc3518b65855a1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player/Diagonal_dcha.png"
-dest_files=["res://.godot/imported/Diagonal_dcha.png-19b91130b13957c5b78f117cf93b40c3.ctex"]
+source_file="res://assets/sprites/player/Diagonal_dcha_abajo.png"
+dest_files=["res://.godot/imported/Diagonal_dcha_abajo.png-9ed67550654d68628cc3518b65855a1f.ctex"]
 
 [params]
 

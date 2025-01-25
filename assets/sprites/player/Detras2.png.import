@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4we83k7m0njj"
-path="res://.godot/imported/Frente.png-665aca8a8c4d62308c3e612bda9dafcc.ctex"
+uid="uid://c0r3etxxu8kcg"
+path="res://.godot/imported/Detras2.png-9b6f3463727d9944a07f1852dfc7bb4e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player/Frente.png"
-dest_files=["res://.godot/imported/Frente.png-665aca8a8c4d62308c3e612bda9dafcc.ctex"]
+source_file="res://assets/sprites/player/Detras2.png"
+dest_files=["res://.godot/imported/Detras2.png-9b6f3463727d9944a07f1852dfc7bb4e.ctex"]
 
 [params]
 

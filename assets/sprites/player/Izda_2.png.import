@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4we83k7m0njj"
-path="res://.godot/imported/Frente.png-665aca8a8c4d62308c3e612bda9dafcc.ctex"
+uid="uid://cxuc7lyr7vq68"
+path="res://.godot/imported/Izda_2.png-b88c0644ad1dae91736b65373604ed8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player/Frente.png"
-dest_files=["res://.godot/imported/Frente.png-665aca8a8c4d62308c3e612bda9dafcc.ctex"]
+source_file="res://assets/sprites/player/Izda_2.png"
+dest_files=["res://.godot/imported/Izda_2.png-b88c0644ad1dae91736b65373604ed8f.ctex"]
 
 [params]
 
