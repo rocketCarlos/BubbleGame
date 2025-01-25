@@ -11,20 +11,24 @@ const MIN_DEACCEL: float = 200.0
 var deaccel: float = MIN_DEACCEL
 # measures how slippery the surface is. 
 # The higher, the more inertia there is
-# between 0 and 1
+# max is 1.0
+const MIN_SLIPPERY: float = 0.96
 var slippery_factor: float = 1.0
 
-# between 0 and 100
+# the distance to be covered before losing all water
+const WATER_DISTANCE: float = 10000.0
 var water_level: float = 100.0
+var distance_travelled: float = 0.0
+
 
 func _ready() -> void:
 	Globals.refill.connect(_on_refill)
 	update_acceleration()
 
 func _physics_process(delta: float) -> void:
-	# -----------------------------------------
-	# rotate the duck to point towars the mouse
-	# -----------------------------------------
+	# ---------------------------------------------
+	# rotate the player to point towards the mouse
+	# ---------------------------------------------
 	var mouse_position = get_global_mouse_position()
 	var direction = (mouse_position - global_position).normalized()
 	rotation = Vector2(0.0, 1.0).angle_to(direction)
@@ -55,11 +59,10 @@ func _physics_process(delta: float) -> void:
 	# -------------------------
 	# manage water level
 	# -------------------------
-	water_level -= velocity.length() * 0.00025
-	
-	if water_level < 0:
-		water_level = 0
-	
+	# water level linearly decreases as distance_travelled increases
+	distance_travelled += velocity.length() * delta
+	water_level = clamp(inverse_lerp(WATER_DISTANCE, 0.0, distance_travelled) * 100.0, 0.0, 100.0)
+	print(distance_travelled, " ", water_level)
 	update_acceleration()
 	
 	move_and_slide()
@@ -70,10 +73,10 @@ updates accel and deaccel depending on the water level
 '''
 func update_acceleration() -> void:
 	# TODO: explore easing for values
-	slippery_factor = lerp(0.96, 1.0, water_level/100.0)
+	slippery_factor = lerp(MIN_SLIPPERY, 1.0, water_level/100.0)
 	accel = lerp(MAX_ACCEL, MIN_ACCEL, water_level/100.0)
 	deaccel = lerp(MAX_DEACCEL, MIN_DEACCEL, water_level/100.0)
-	print(accel, " ", deaccel, " ", water_level)
+	
 #endregion
 
 #region signal functions
