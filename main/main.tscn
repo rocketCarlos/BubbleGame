@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bto4buubhbllt"]
+[gd_scene load_steps=9 format=3 uid="uid://bto4buubhbllt"]
 
 [ext_resource type="PackedScene" uid="uid://bn4cnbbx6ivon" path="res://scenes/player/player.tscn" id="1_32a8h"]
 [ext_resource type="Script" path="res://main/main.gd" id="1_ivnx8"]
 [ext_resource type="PackedScene" uid="uid://kkbgeyekblat" path="res://scenes/floor/floor.tscn" id="1_jy4td"]
-[ext_resource type="PackedScene" uid="uid://bhn4uid5as0x1" path="res://scenes/bucket/bucket.tscn" id="2_kmb3j"]
 [ext_resource type="PackedScene" uid="uid://do2n3ncfa2yr2" path="res://scenes/progression_bar/progess_bar.tscn" id="3_1gxha"]
 [ext_resource type="PackedScene" uid="uid://bpf78h7wx1uy3" path="res://scenes/clock/clock.tscn" id="3_6pisg"]
 [ext_resource type="PackedScene" uid="uid://ijedeehk4gbp" path="res://scenes/water_bar/water_bar.tscn" id="4_mxo2a"]
@@ -17,6 +16,7 @@ script = ExtResource("1_ivnx8")
 z_index = -2
 
 [node name="Player" parent="." instance=ExtResource("1_32a8h")]
+position = Vector2(-1639, 232)
 
 [node name="HUD" type="CanvasLayer" parent="Player"]
 
@@ -78,9 +78,6 @@ texture = ExtResource("6_1mjde")
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
 position_smoothing_speed = 2.5
-
-[node name="Bucket" parent="." instance=ExtResource("2_kmb3j")]
-position = Vector2(693, 295)
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_j8oke")
