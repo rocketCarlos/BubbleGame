@@ -1,16 +1,17 @@
-[gd_scene load_steps=33 format=3 uid="uid://bn4cnbbx6ivon"]
+[gd_scene load_steps=32 format=3 uid="uid://bn4cnbbx6ivon"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_jcsjg"]
 [ext_resource type="Texture2D" uid="uid://4we83k7m0njj" path="res://assets/sprites/player/Frente.png" id="2_dm087"]
 [ext_resource type="PackedScene" uid="uid://chgcoed0kg6dm" path="res://scenes/bubbles/bubble.tscn" id="2_y8vtt"]
 [ext_resource type="Texture2D" uid="uid://cbg1x8doh882k" path="res://assets/sprites/player/Frente2.png" id="3_3ebry"]
-[ext_resource type="Texture2D" uid="uid://cv570tdiuv50i" path="res://assets/player_new/Diagonal_izda_abajo_nuevo2.png" id="3_7xtyg"]
-[ext_resource type="Texture2D" uid="uid://dd72fbm7fd568" path="res://assets/player_new/Diagonal_izda_abajo_nuevo.png" id="4_2ef2i"]
+[ext_resource type="Texture2D" uid="uid://cn7bxkamfeuw7" path="res://assets/player_new/Diagonal_izda_abajo_nuevo2.png" id="3_7xtyg"]
+[ext_resource type="Texture2D" uid="uid://bnr8nl6fj2xxl" path="res://assets/player_new/Diagonal_izda_abajo_nuevo.png" id="4_2ef2i"]
 [ext_resource type="Texture2D" uid="uid://dooay213my1ry" path="res://assets/player_new/Diagonal_dcha_abajo_nuevo2.png" id="5_xaxac"]
 [ext_resource type="Texture2D" uid="uid://bnuws6xkixprp" path="res://assets/player_new/Diagonal_dcha_abajo_nuevo.png" id="6_3afr5"]
 [ext_resource type="Texture2D" uid="uid://wj7erchn2sgk" path="res://assets/sprites/player/Detras.png" id="8_12hhu"]
 [ext_resource type="Texture2D" uid="uid://cvket54hwawpp" path="res://assets/player_new/Dcha_nuevo2.png" id="9_6in1j"]
-[ext_resource type="Texture2D" uid="uid://ci43t7oe7h5be" path="res://assets/player_new/Izda_nuevo2-sheet.png" id="9_esk7v"]
+[ext_resource type="Texture2D" uid="uid://c42o5gwven0o5" path="res://assets/player_new/Izda_nuevo2.png" id="9_j1jbw"]
+[ext_resource type="Texture2D" uid="uid://c2ff7x16xf751" path="res://assets/player_new/Izda_nuevo.png" id="10_fntkv"]
 [ext_resource type="Texture2D" uid="uid://hefb58qdax8e" path="res://assets/player_new/Dcha_nuevo.png" id="10_hrgf8"]
 [ext_resource type="AudioStream" uid="uid://dp5hytyrbespa" path="res://assets/sound/steps/dry_steps/Paso.ogg" id="11_67ys0"]
 [ext_resource type="Texture2D" uid="uid://c1hlrhgo2j64g" path="res://assets/player_new/Diagonal_izda_arriba_nuevo2.png" id="11_vawoc"]
@@ -26,14 +27,6 @@
 [ext_resource type="AudioStream" uid="uid://cpqxcbxtbv4g8" path="res://assets/sound/steps/slip/Derrape 1.ogg" id="17_pgiy3"]
 [ext_resource type="AudioStream" uid="uid://de08e7q8fgw6a" path="res://assets/sound/steps/slip/Derrape 2.ogg" id="18_kk7ha"]
 [ext_resource type="AudioStream" uid="uid://3wmsq6rn68fw" path="res://assets/sound/events/Sin agua.ogg" id="19_6rh45"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wojsu"]
-atlas = ExtResource("9_esk7v")
-region = Rect2(0, 0, 400, 350)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ypy5o"]
-atlas = ExtResource("9_esk7v")
-region = Rect2(400, 0, 400, 350)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6itug"]
 animations = [{
@@ -72,10 +65,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wojsu")
+"texture": ExtResource("9_j1jbw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ypy5o")
+"texture": ExtResource("10_fntkv")
 }],
 "loop": true,
 "name": &"left",
@@ -160,8 +153,7 @@ polygon = PackedVector2Array(-146.5, -20.5, -100.5, -213.5, 77.5, -215.5, 115.5,
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6itug")
-animation = &"down_right"
-frame_progress = 0.949381
+animation = &"left"
 
 [node name="HumidStepsPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_j34j6")

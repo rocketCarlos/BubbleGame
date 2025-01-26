@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c42o5gwven0o5"
-path="res://.godot/imported/Izda_nuevo2.png-f6d19666aac3937e9242869e508b6c78.ctex"
+uid="uid://btx2v1sk23lij"
+path="res://.godot/imported/pistola 5.png-752afee3ce8c91d38e58047c5e506a2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player_new/Izda_nuevo2.png"
-dest_files=["res://.godot/imported/Izda_nuevo2.png-f6d19666aac3937e9242869e508b6c78.ctex"]
+source_file="res://assets/final_cutscene/pistola 5.png"
+dest_files=["res://.godot/imported/pistola 5.png-752afee3ce8c91d38e58047c5e506a2e.ctex"]
 
 [params]
 
