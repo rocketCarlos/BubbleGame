@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bto4buubhbllt"]
+[gd_scene load_steps=10 format=3 uid="uid://bto4buubhbllt"]
 
 [ext_resource type="PackedScene" uid="uid://bn4cnbbx6ivon" path="res://scenes/player/player.tscn" id="1_32a8h"]
 [ext_resource type="Script" path="res://main/main.gd" id="1_ivnx8"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bpf78h7wx1uy3" path="res://scenes/clock/clock.tscn" id="3_6pisg"]
 [ext_resource type="PackedScene" uid="uid://ijedeehk4gbp" path="res://scenes/water_bar/water_bar.tscn" id="4_mxo2a"]
 [ext_resource type="Texture2D" uid="uid://dps6ows7d8m3f" path="res://assets/sprites/Agua.png" id="6_1mjde"]
+[ext_resource type="AudioStream" uid="uid://dweijjpy117f0" path="res://assets/sound/music.ogg" id="9_j8oke"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ivnx8")
@@ -79,3 +80,7 @@ position_smoothing_enabled = true
 
 [node name="Bucket" parent="." instance=ExtResource("2_kmb3j")]
 position = Vector2(693, 295)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_j8oke")
+autoplay = true
