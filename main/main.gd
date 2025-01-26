@@ -10,7 +10,7 @@ const MIN_SPEED = 0
 var MIN_ZOOM = 0.9
 var MAX_ZOOM = 1.1
 
-# Called when the node enters the scene tree for the first time.
+# Called when thecheats node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.no_water.connect(_on_no_water)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://kkbgeyekblat"]
+[gd_scene load_steps=23 format=3 uid="uid://kkbgeyekblat"]
 
 [ext_resource type="Texture2D" uid="uid://bqbhx1c2ekc6w" path="res://assets/sprites/tiles/Baldosa1-sheet.png" id="1_4g3oa"]
 [ext_resource type="Texture2D" uid="uid://cre0blo5wte0n" path="res://icon.svg" id="1_8bhom"]
@@ -12,6 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://cb28tqkwsqc4n" path="res://assets/sprites/furnitures/IMG_7179.png" id="10_8oq02"]
 [ext_resource type="Texture2D" uid="uid://biwue5wcicp6r" path="res://assets/sprites/furnitures/IMG_7181.png" id="11_gbvyk"]
 [ext_resource type="Texture2D" uid="uid://pglq07kx3nsg" path="res://assets/sprites/furnitures/IMG_7180.png" id="11_n5qu5"]
+[ext_resource type="Texture2D" uid="uid://cx8dukhs0fpf6" path="res://assets/sprites/furnitures/IMG_7182.png" id="12_rnbwx"]
+[ext_resource type="Texture2D" uid="uid://civfgei5jnjw4" path="res://assets/sprites/furnitures/IMG_7183.png" id="14_86wao"]
+[ext_resource type="Texture2D" uid="uid://dcqfuhpgfqmh" path="res://assets/sprites/furnitures/IMG_7184.png" id="15_qyole"]
+[ext_resource type="Texture2D" uid="uid://p26feerbf5sj" path="res://assets/sprites/furnitures/IMG_7185.png" id="16_n5s10"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bvu6i"]
 texture = ExtResource("1_4g3oa")
@@ -161,6 +165,23 @@ position = Vector2(104.35, -5.00001)
 scale = Vector2(0.690584, 0.847059)
 texture = ExtResource("11_gbvyk")
 
+[node name="Expositor" parent="furnitures" instance=ExtResource("5_0frni")]
+position = Vector2(-611, 326)
+
+[node name="Furniture" parent="furnitures/Expositor" instance=ExtResource("5_0frni")]
+position = Vector2(268.375, 0)
+
+[node name="Furniture2" parent="furnitures/Expositor" instance=ExtResource("5_0frni")]
+position = Vector2(96.735, 0)
+
+[node name="Furniture3" parent="furnitures/Expositor" instance=ExtResource("5_0frni")]
+position = Vector2(169.94, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="furnitures/Expositor"]
+position = Vector2(134.115, 0)
+scale = Vector2(0.962353, 0.827778)
+texture = ExtResource("12_rnbwx")
+
 [node name="TableWithPaper" parent="furnitures" instance=ExtResource("5_0frni")]
 position = Vector2(-1013, -319.285)
 
@@ -173,3 +194,79 @@ position = Vector2(0, -227.52)
 [node name="Sprite2D" type="Sprite2D" parent="furnitures/TableWithPaper"]
 position = Vector2(0, -121.69)
 texture = ExtResource("11_n5qu5")
+
+[node name="BigTableWithPapers" parent="furnitures" instance=ExtResource("5_0frni")]
+position = Vector2(189, 54)
+
+[node name="Furniture" parent="furnitures/BigTableWithPapers" instance=ExtResource("5_0frni")]
+position = Vector2(38.385, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="furnitures/BigTableWithPapers"]
+position = Vector2(24, -3)
+scale = Vector2(0.685, 0.685)
+texture = ExtResource("14_86wao")
+
+[node name="LShapedTable" parent="furnitures" instance=ExtResource("5_0frni")]
+position = Vector2(-149, 435)
+
+[node name="Furniture" parent="furnitures/LShapedTable" instance=ExtResource("5_0frni")]
+position = Vector2(123.7, 0)
+
+[node name="Furniture2" parent="furnitures/LShapedTable" instance=ExtResource("5_0frni")]
+position = Vector2(245.175, 0)
+
+[node name="Furniture3" parent="furnitures/LShapedTable" instance=ExtResource("5_0frni")]
+position = Vector2(322, 0)
+
+[node name="Furniture4" parent="furnitures/LShapedTable" instance=ExtResource("5_0frni")]
+position = Vector2(126, 82.045)
+
+[node name="Furniture5" parent="furnitures/LShapedTable" instance=ExtResource("5_0frni")]
+position = Vector2(252, 82.045)
+
+[node name="Furniture6" parent="furnitures/LShapedTable" instance=ExtResource("5_0frni")]
+position = Vector2(322, 82.045)
+
+[node name="Furniture7" parent="furnitures/LShapedTable" instance=ExtResource("5_0frni")]
+position = Vector2(74, 205)
+
+[node name="Furniture8" parent="furnitures/LShapedTable" instance=ExtResource("5_0frni")]
+position = Vector2(70, 267)
+
+[node name="Furniture9" parent="furnitures/LShapedTable" instance=ExtResource("5_0frni")]
+position = Vector2(32, 267)
+
+[node name="Sprite2D" type="Sprite2D" parent="furnitures/LShapedTable"]
+visible = false
+position = Vector2(162, 132)
+texture = ExtResource("15_qyole")
+
+[node name="LShapedTableWithPapers" parent="furnitures" instance=ExtResource("5_0frni")]
+position = Vector2(735, 182)
+
+[node name="Furniture" parent="furnitures/LShapedTableWithPapers" instance=ExtResource("5_0frni")]
+position = Vector2(126, 0)
+
+[node name="Furniture2" parent="furnitures/LShapedTableWithPapers" instance=ExtResource("5_0frni")]
+position = Vector2(252, 0)
+
+[node name="Furniture3" parent="furnitures/LShapedTableWithPapers" instance=ExtResource("5_0frni")]
+position = Vector2(370, 0)
+
+[node name="Furniture4" parent="furnitures/LShapedTableWithPapers" instance=ExtResource("5_0frni")]
+position = Vector2(370, 59)
+
+[node name="Furniture7" parent="furnitures/LShapedTableWithPapers" instance=ExtResource("5_0frni")]
+position = Vector2(149.795, 59)
+
+[node name="Furniture8" parent="furnitures/LShapedTableWithPapers" instance=ExtResource("5_0frni")]
+position = Vector2(0, 121.635)
+
+[node name="Furniture9" parent="furnitures/LShapedTableWithPapers" instance=ExtResource("5_0frni")]
+position = Vector2(25, 181)
+
+[node name="Sprite2D" type="Sprite2D" parent="furnitures/LShapedTableWithPapers"]
+visible = false
+position = Vector2(185, 167)
+scale = Vector2(0.945, 1)
+texture = ExtResource("16_n5s10")
