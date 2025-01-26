@@ -50,4 +50,4 @@ script = ExtResource("5_durnt")
 position = Vector2(-870, 401)
 sprite_frames = SubResource("SpriteFrames_s4btu")
 autoplay = "default"
-frame_progress = 0.566694
+frame_progress = 0.353053
