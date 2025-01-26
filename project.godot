@@ -41,6 +41,7 @@ accelerate={
 2d_physics/layer_4="tiles"
 2d_physics/layer_5="furnitures"
 2d_physics/layer_6="items"
+2d_physics/layer_7="walls"
 
 [rendering]
 

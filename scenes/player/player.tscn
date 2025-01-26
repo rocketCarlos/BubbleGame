@@ -140,8 +140,8 @@ stream_1/stream = ExtResource("18_kk7ha")
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
-collision_layer = 17
-collision_mask = 19
+collision_layer = 81
+collision_mask = 82
 motion_mode = 1
 safe_margin = 0.001
 script = ExtResource("1_jcsjg")

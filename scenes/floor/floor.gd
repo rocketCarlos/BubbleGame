@@ -14,7 +14,7 @@ func _ready() -> void:
 	Globals.clean.connect(_on_clean)
 	Globals.mess.connect(_on_mess)
 	Globals.water_update.connect(_on_water_update)
-	mess_random(50.0)
+	mess_random(25.0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
