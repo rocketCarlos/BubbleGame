@@ -11,12 +11,14 @@ bounce = 1.0
 size = Vector2(125, 124)
 
 [node name="Furniture" type="StaticBody2D"]
+y_sort_enabled = true
 collision_layer = 16
 collision_mask = 16
 physics_material_override = SubResource("PhysicsMaterial_gslx7")
 script = ExtResource("1_jkkem")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Placeholder" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_asnt7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

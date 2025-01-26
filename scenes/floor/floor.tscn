@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://kkbgeyekblat"]
+[gd_scene load_steps=18 format=4 uid="uid://kkbgeyekblat"]
 
 [ext_resource type="Texture2D" uid="uid://bqbhx1c2ekc6w" path="res://assets/sprites/tiles/Baldosa1-sheet.png" id="1_4g3oa"]
 [ext_resource type="Texture2D" uid="uid://cre0blo5wte0n" path="res://icon.svg" id="1_8bhom"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d3orqly2cf2ms" path="res://assets/sprites/dirt.png" id="3_imweh"]
 [ext_resource type="PackedScene" uid="uid://bhr136mc1qrjy" path="res://scenes/furniture/furniture.tscn" id="5_0frni"]
 [ext_resource type="PackedScene" uid="uid://c8ne0dc73bdnf" path="res://scenes/item/item.tscn" id="6_7vdbf"]
+[ext_resource type="Texture2D" uid="uid://cfjdny5txxv5q" path="res://assets/sprites/furniture1.png" id="6_xp108"]
 [ext_resource type="AudioStream" uid="uid://bm678iuwggrdw" path="res://assets/sound/mop/fregona mojada.ogg" id="7_06haq"]
 [ext_resource type="AudioStream" uid="uid://0p4j88qh1h5h" path="res://assets/sound/mop/fregona seca 2.ogg" id="8_4a1nq"]
 [ext_resource type="AudioStream" uid="uid://c50nctswfiwl0" path="res://assets/sound/mop/rfegona seca 1.ogg" id="9_h87lv"]
@@ -37,6 +38,9 @@ texture = ExtResource("3_imweh")
 tile_size = Vector2i(128, 128)
 sources/0 = SubResource("TileSetAtlasSource_mtpdk")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbt4s"]
+size = Vector2(130.336, 382.001)
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ctpju"]
 random_pitch = 2.0
 streams_count = 2
@@ -65,10 +69,26 @@ scale = Vector2(2.61719, 0.3125)
 texture = ExtResource("1_8bhom")
 
 [node name="Furniture" parent="." instance=ExtResource("5_0frni")]
-position = Vector2(-381, 386)
-metadata/_edit_group_ = true
+position = Vector2(-381, 387)
+
+[node name="Furniture" parent="Furniture" instance=ExtResource("5_0frni")]
+position = Vector2(125.325, 0)
+
+[node name="Furniture2" parent="Furniture" instance=ExtResource("5_0frni")]
+position = Vector2(-125, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Furniture"]
+scale = Vector2(0.82, 0.82)
+texture = ExtResource("6_xp108")
 
 [node name="Item" parent="Furniture" instance=ExtResource("6_7vdbf")]
+position = Vector2(-24, -57)
+scale = Vector2(0.42, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Furniture/Item"]
+position = Vector2(24.2269, 55.499)
+rotation = -1.56731
+shape = SubResource("RectangleShape2D_wbt4s")
 
 [node name="HumidCleaning" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_ctpju")

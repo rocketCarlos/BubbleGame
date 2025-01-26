@@ -143,17 +143,18 @@ y_sort_enabled = true
 collision_layer = 17
 collision_mask = 18
 motion_mode = 1
+safe_margin = 0.001
 script = ExtResource("1_jcsjg")
 bubble_scene = ExtResource("2_y8vtt")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(20.5, 135.5)
-polygon = PackedVector2Array(-65.5, -84.5, -31.5, -178.5, 6.5, -178.5, 36.5, -85.5)
+polygon = PackedVector2Array(-146.5, -20.5, -100.5, -213.5, 77.5, -215.5, 115.5, -18.5)
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6itug")
 animation = &"up_right"
-frame_progress = 0.95178
+frame_progress = 0.767313
 
 [node name="HumidStepsPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_j34j6")

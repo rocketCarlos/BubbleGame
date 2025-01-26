@@ -11,6 +11,7 @@ bounce = 1.0
 size = Vector2(143, 143)
 
 [node name="Item" type="RigidBody2D"]
+y_sort_enabled = true
 physics_material_override = SubResource("PhysicsMaterial_btk4o")
 gravity_scale = 0.0
 contact_monitor = true
@@ -18,9 +19,11 @@ max_contacts_reported = 1
 script = ExtResource("1_qexm5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("1_kje21")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-0.5, -1.5)
 shape = SubResource("RectangleShape2D_4yhuw")
 debug_color = Color(0.7, 0, 0.42, 0.419608)
