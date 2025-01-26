@@ -166,17 +166,20 @@ func _physics_process(delta: float) -> void:
 	# ------------------
 	# manage cleaning
 	# -------------------
-	cleaning_points = [
-		cleaning_point_1.global_position,
-		cleaning_point_2.global_position,
-		cleaning_point_3.global_position,
-		cleaning_point_4.global_position,
-		cleaning_point_5.global_position,
-		cleaning_point_6.global_position,
-		cleaning_point_7.global_position,
-		cleaning_point_8.global_position,
-		]
-	Globals.clean.emit(cleaning_points)
+	# cleans if enough water
+	if water_level > 0.0:
+		cleaning_points = [
+			cleaning_point_1.global_position,
+			cleaning_point_2.global_position,
+			cleaning_point_3.global_position,
+			cleaning_point_4.global_position,
+			cleaning_point_5.global_position,
+			cleaning_point_6.global_position,
+			cleaning_point_7.global_position,
+			cleaning_point_8.global_position,
+			]
+		
+		Globals.clean.emit(cleaning_points)
 	
 	# -------------------------------------
 	# manage sound
