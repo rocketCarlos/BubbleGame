@@ -125,7 +125,7 @@ func _physics_process(delta: float) -> void:
 		sprite.stop()
 	#mop.position = mop_positions[sprite.animation]
 	# -----------------------------------------
-	# manage movement
+	# manage movement and camera
 	# -----------------------------------------
 	var force =  Vector2(0.0, 0.0)
 	if Input.is_action_pressed("accelerate"):
