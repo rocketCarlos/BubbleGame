@@ -57,6 +57,8 @@ var cleaning_points : Array
 
 @export var bubble_scene: PackedScene
 var buble_wait: bool = false
+
+var playing_slip: bool = false
 #endregion
 
 func _ready() -> void:
@@ -93,6 +95,26 @@ func _physics_process(delta: float) -> void:
 			sprite.animation = "down_left"
 	elif abs(angle) < (8.0*step):
 		sprite.animation = "left"
+	
+	if playing_slip:
+		# also put the slip animation
+			match sprite.animation:
+				"up":
+					sprite.play("slip_up")
+				"up_right":
+					sprite.play("slip_up_right")
+				"right":
+					sprite.play("slip_right")
+				"down_right":
+					sprite.play("slip_down_right")
+				"down":
+					sprite.play("slip_down")
+				"down_left":
+					sprite.play("slip_down_left")
+				"left":
+					sprite.play("slip_left")
+				"up_left":
+					sprite.play("slip_up_left")
 	
 	if velocity.length() > 0:
 		sprite.play()
@@ -189,6 +211,7 @@ func _physics_process(delta: float) -> void:
 		# choose whether to play the slip sound or the normal steps
 		if abs(velocity.angle_to(force)) > PI/3.0 and velocity.length() > MAX_SPEED/1.3: # play slip
 			slip_steps_player.play()
+			playing_slip = true				
 			wait_time = 1.0
 		elif randf() > (water_level / 100.0): # play steps, dry or humid
 			dry_steps_player.play()
@@ -218,6 +241,7 @@ func _on_refill() -> void:
 	
 func _on_step_wait_timeout() -> void:
 	step_wait = false
+	playing_slip = false
 
 func _on_bubble_wait_timeout() -> void:
 	buble_wait = false

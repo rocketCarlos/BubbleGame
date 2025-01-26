@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bn4cnbbx6ivon"]
+[gd_scene load_steps=39 format=3 uid="uid://bn4cnbbx6ivon"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_jcsjg"]
 [ext_resource type="Texture2D" uid="uid://4we83k7m0njj" path="res://assets/sprites/player/Frente.png" id="2_dm087"]
@@ -20,12 +20,19 @@
 [ext_resource type="Texture2D" uid="uid://mgu47eyvjgtg" path="res://assets/player_new/Diagonal_izda_arriba_nuevo.png" id="12_uyi05"]
 [ext_resource type="Texture2D" uid="uid://cqw43d3mo3enj" path="res://assets/player_new/Diagonal_dcha_arriba_nuevo2.png" id="13_5liv7"]
 [ext_resource type="AudioStream" uid="uid://djokxebvnx188" path="res://assets/sound/steps/dry_steps/Paso 3.ogg" id="13_7ot7t"]
+[ext_resource type="Texture2D" uid="uid://bpsx3vra1rxqk" path="res://assets/player_new/RESBALARSE/Resbalar_frente.png" id="13_nc5y8"]
 [ext_resource type="Texture2D" uid="uid://8shh4oalpt1s" path="res://assets/player_new/Diagonal_dcha_arriba_nuevo.png" id="14_076cb"]
+[ext_resource type="Texture2D" uid="uid://c2pvfkwwlvd65" path="res://assets/player_new/RESBALARSE/Resbalar_Diagonal_dcha_abajo.png" id="14_m4n2t"]
 [ext_resource type="AudioStream" uid="uid://bg8aci02sxmb3" path="res://assets/sound/steps/humid_steps/Paso humedo 1.ogg" id="14_yjias"]
 [ext_resource type="AudioStream" uid="uid://c5mtc7tg262oa" path="res://assets/sound/steps/humid_steps/Paso humedo 2.ogg" id="15_4yudi"]
+[ext_resource type="Texture2D" uid="uid://fyunc2do8jbw" path="res://assets/player_new/RESBALARSE/Resbalar_Izda.png" id="15_j72on"]
 [ext_resource type="AudioStream" uid="uid://dbhw7wufrc8cq" path="res://assets/sound/steps/humid_steps/Paso humedo 3.ogg" id="16_mfbqo"]
+[ext_resource type="Texture2D" uid="uid://s142jnrh6kcc" path="res://assets/player_new/RESBALARSE/Resbalar_Dcha.png" id="16_v7nkt"]
+[ext_resource type="Texture2D" uid="uid://b2xgdtrxyfh0p" path="res://assets/player_new/RESBALARSE/Resbalar_detras.png" id="17_a4v2d"]
 [ext_resource type="AudioStream" uid="uid://cpqxcbxtbv4g8" path="res://assets/sound/steps/slip/Derrape 1.ogg" id="17_pgiy3"]
+[ext_resource type="Texture2D" uid="uid://7o7frdwc665x" path="res://assets/player_new/RESBALARSE/Resbalar_diagonal_izda_arriba.png" id="18_21ohj"]
 [ext_resource type="AudioStream" uid="uid://de08e7q8fgw6a" path="res://assets/sound/steps/slip/Derrape 2.ogg" id="18_kk7ha"]
+[ext_resource type="Texture2D" uid="uid://ctxv6i064vc3v" path="res://assets/player_new/RESBALARSE/Resbalar_diagonal_dcha_arriba.png" id="19_6fbq5"]
 [ext_resource type="AudioStream" uid="uid://3wmsq6rn68fw" path="res://assets/sound/events/Sin agua.ogg" id="19_6rh45"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6itug"]
@@ -83,6 +90,67 @@ animations = [{
 }],
 "loop": true,
 "name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_nc5y8")
+}],
+"loop": true,
+"name": &"slip_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_m4n2t")
+}],
+"loop": true,
+"name": &"slip_down_left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"slip_down_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_j72on")
+}],
+"loop": true,
+"name": &"slip_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_v7nkt")
+}],
+"loop": true,
+"name": &"slip_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_a4v2d")
+}],
+"loop": true,
+"name": &"slip_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_21ohj")
+}],
+"loop": true,
+"name": &"slip_up_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_6fbq5")
+}],
+"loop": true,
+"name": &"slip_up_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -153,7 +221,7 @@ polygon = PackedVector2Array(-146.5, -20.5, -100.5, -213.5, 77.5, -215.5, 115.5,
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6itug")
-animation = &"left"
+animation = &"slip_left"
 
 [node name="HumidStepsPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_j34j6")
