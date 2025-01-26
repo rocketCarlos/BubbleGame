@@ -153,7 +153,7 @@ polygon = PackedVector2Array(-65.5, -84.5, -31.5, -178.5, 6.5, -178.5, 36.5, -85
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6itug")
 animation = &"up_right"
-frame = 1
+frame_progress = 0.95178
 
 [node name="HumidStepsPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_j34j6")

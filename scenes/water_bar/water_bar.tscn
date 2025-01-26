@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scenes/water_bar/water_bar.gd" id="2_yp4xf"]
 
 [node name="WaterBar" type="TextureProgressBar"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 69.0
+offset_bottom = 1725.0
 scale = Vector2(0.2, 0.2)
 step = 0.1
 value = 34.0

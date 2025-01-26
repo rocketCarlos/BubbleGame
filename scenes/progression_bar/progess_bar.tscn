@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://scenes/progression_bar/progress_bar.gd" id="1_6kb3l"]
 [ext_resource type="Texture2D" uid="uid://d3px73g4xt4oh" path="res://assets/sprites/Barra_Vacia.png" id="1_bafkm"]
-[ext_resource type="Texture2D" uid="uid://b0dhioioxwe68" path="res://assets/sprites/Fregona.png" id="4_hjp00"]
+[ext_resource type="Texture2D" uid="uid://yds4gvm4b3ji" path="res://assets/sprites/mop.png" id="3_yy80r"]
 [ext_resource type="Texture2D" uid="uid://dy6pwmp43apve" path="res://assets/sprites/Burbujas.png" id="5_jkiqw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kp65n"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_hjp00")
+"texture": ExtResource("3_yy80r")
 }],
 "loop": true,
 "name": &"default",
@@ -28,10 +28,12 @@ animations = [{
 }]
 
 [node name="ProgressBar" type="TextureProgressBar"]
-offset_right = 1725.0
-offset_bottom = 69.0
+offset_left = 256.0
+offset_top = 101.0
+offset_right = 1981.0
+offset_bottom = 170.0
 scale = Vector2(0.425, 0.425)
-value = 77.0
+value = 56.0
 texture_under = ExtResource("1_bafkm")
 texture_progress = ExtResource("1_bafkm")
 tint_under = Color(0.66, 0.66, 0.66, 0.243137)

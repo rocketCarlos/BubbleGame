@@ -17,3 +17,6 @@ signal clean(positions: Array)
 
 # called by things that mess up tiles
 signal mess(positions: Array)
+
+# emmited by player when run out of water
+signal no_water()

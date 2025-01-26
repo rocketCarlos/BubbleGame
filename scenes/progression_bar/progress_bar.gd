@@ -10,7 +10,7 @@ var already_flipped: bool = false
 func _ready() -> void:
 	value = 0
 	mop_start = mop.position.x
-	mop_end = bubbles.position.x - bubbles.sprite_frames.get_frame_texture("default",0).get_width()
+	mop_end = bubbles.position.x
 	
 func _process(delta: float) -> void:
 	mop.position.x = lerp(mop_start, mop_end, value / 100.0)

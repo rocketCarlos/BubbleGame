@@ -157,6 +157,8 @@ func _physics_process(delta: float) -> void:
 	water_level = clamp(inverse_lerp(WATER_DISTANCE, 0.0, distance_travelled) * 100.0, 0.0, 100.0)
 	if water_level == 0 and water_just_empty:
 		no_water_player.play()
+		Globals.no_water.emit()
+		
 		
 	Globals.water_update.emit(water_level)
 	update_acceleration()
