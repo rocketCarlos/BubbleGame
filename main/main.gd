@@ -10,6 +10,12 @@ const MIN_SPEED = 0
 var MIN_ZOOM = 0.9
 var MAX_ZOOM = 1.1
 
+const GOLD_VICTORY = 200
+const GOLD_EXTRA_PER_SECOND = 2
+const GOLD_PENALTY = -20
+const GOLD_GOAL = 200
+var penalties: int = 0
+
 # Called when thecheats node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.no_water.connect(_on_no_water)
