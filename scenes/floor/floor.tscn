@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bqbhx1c2ekc6w" path="res://assets/sprites/tiles/Baldosa1-sheet.png" id="1_4g3oa"]
 [ext_resource type="Texture2D" uid="uid://cre0blo5wte0n" path="res://icon.svg" id="1_8bhom"]
 [ext_resource type="Script" path="res://scenes/floor/floor.gd" id="1_ilsrn"]
-[ext_resource type="Texture2D" uid="uid://d3orqly2cf2ms" path="res://assets/sprites/dirt.png" id="3_imweh"]
+[ext_resource type="Texture2D" uid="uid://dysjsold3id4i" path="res://assets/sprites/dirt/basura_Sheet-export.png" id="3_4i3sh"]
 [ext_resource type="PackedScene" uid="uid://bhr136mc1qrjy" path="res://scenes/furniture/furniture.tscn" id="5_0frni"]
 [ext_resource type="PackedScene" uid="uid://c8ne0dc73bdnf" path="res://scenes/item/item.tscn" id="6_7vdbf"]
 [ext_resource type="Texture2D" uid="uid://cfjdny5txxv5q" path="res://assets/sprites/furniture1.png" id="6_xp108"]
@@ -29,14 +29,70 @@ texture_region_size = Vector2i(128, 128)
 tile_size = Vector2i(128, 128)
 sources/0 = SubResource("TileSetAtlasSource_bvu6i")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mtpdk"]
-texture = ExtResource("3_imweh")
-0:0/size_in_atlas = Vector2i(14, 9)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p8ord"]
+texture = ExtResource("3_4i3sh")
+texture_region_size = Vector2i(200, 200)
+0:0/animation_columns = 55
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/animation_frame_8/duration = 1.0
+0:0/animation_frame_9/duration = 1.0
+0:0/animation_frame_10/duration = 1.0
+0:0/animation_frame_11/duration = 1.0
+0:0/animation_frame_12/duration = 1.0
+0:0/animation_frame_13/duration = 1.0
+0:0/animation_frame_14/duration = 1.0
+0:0/animation_frame_15/duration = 1.0
+0:0/animation_frame_16/duration = 1.0
+0:0/animation_frame_17/duration = 1.0
+0:0/animation_frame_18/duration = 1.0
+0:0/animation_frame_19/duration = 1.0
+0:0/animation_frame_20/duration = 1.0
+0:0/animation_frame_21/duration = 1.0
+0:0/animation_frame_22/duration = 1.0
+0:0/animation_frame_23/duration = 1.0
+0:0/animation_frame_24/duration = 1.0
+0:0/animation_frame_25/duration = 1.0
+0:0/animation_frame_26/duration = 1.0
+0:0/animation_frame_27/duration = 1.0
+0:0/animation_frame_28/duration = 1.0
+0:0/animation_frame_29/duration = 1.0
+0:0/animation_frame_30/duration = 1.0
+0:0/animation_frame_31/duration = 1.0
+0:0/animation_frame_32/duration = 1.0
+0:0/animation_frame_33/duration = 1.0
+0:0/animation_frame_34/duration = 1.0
+0:0/animation_frame_35/duration = 1.0
+0:0/animation_frame_36/duration = 1.0
+0:0/animation_frame_37/duration = 1.0
+0:0/animation_frame_38/duration = 1.0
+0:0/animation_frame_39/duration = 1.0
+0:0/animation_frame_40/duration = 1.0
+0:0/animation_frame_41/duration = 1.0
+0:0/animation_frame_42/duration = 1.0
+0:0/animation_frame_43/duration = 1.0
+0:0/animation_frame_44/duration = 1.0
+0:0/animation_frame_45/duration = 1.0
+0:0/animation_frame_46/duration = 1.0
+0:0/animation_frame_47/duration = 1.0
+0:0/animation_frame_48/duration = 1.0
+0:0/animation_frame_49/duration = 1.0
+0:0/animation_frame_50/duration = 1.0
+0:0/animation_frame_51/duration = 1.0
+0:0/animation_frame_52/duration = 1.0
+0:0/animation_frame_53/duration = 1.0
+0:0/animation_frame_54/duration = 1.0
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_42dok"]
 tile_size = Vector2i(128, 128)
-sources/0 = SubResource("TileSetAtlasSource_mtpdk")
+sources/0 = SubResource("TileSetAtlasSource_p8ord")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbt4s"]
 size = Vector2(130.336, 382.001)
@@ -59,7 +115,6 @@ tile_set = SubResource("TileSet_t220r")
 script = ExtResource("1_ilsrn")
 
 [node name="Dirt" type="TileMapLayer" parent="."]
-modulate = Color(1, 0.46, 0.46, 1)
 tile_set = SubResource("TileSet_42dok")
 
 [node name="Wall" type="Sprite2D" parent="."]
