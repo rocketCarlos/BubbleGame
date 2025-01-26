@@ -166,6 +166,7 @@ stream = SubResource("AudioStreamRandomizer_o71th")
 
 [node name="NoWater" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_6rh45")
+volume_db = 8.0
 
 [node name="StepWait" type="Timer" parent="."]
 wait_time = 0.1

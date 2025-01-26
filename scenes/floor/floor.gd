@@ -1,15 +1,19 @@
 extends TileMapLayer
 
 @onready var dirt = $Dirt
+@onready var humid_clean_player = $HumidCleaning
+@onready var dry_clean_player = $DryCleaning
 
 var initial_dirt: int = 0
 var dirt_percentage: float = 0.0
+var water_level: float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	update_dirt_percentage()
 	Globals.clean.connect(_on_clean)
 	Globals.mess.connect(_on_mess)
+	Globals.water_update.connect(_on_water_update)
 	mess_random(50.0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,11 +36,24 @@ func mess_random(percentage: float) -> void:
 #region signal functions
 func _on_clean(cells: Array) -> void:
 	for pos in cells:
-		dirt.erase_cell( local_to_map(to_local(pos)) )
-	update_dirt_percentage()
+		# check if cell is dirty
+		if dirt.get_cell_tile_data(local_to_map(to_local(pos))):
+			# if it is, clean only if water
+			if water_level > 0.0:
+				dirt.erase_cell(local_to_map(to_local(pos)))
+				if not humid_clean_player.playing:
+					humid_clean_player.play()
+			else:
+				if not dry_clean_player.playing:
+					dry_clean_player.play()
+				
+		update_dirt_percentage()
 	
 func _on_mess(cells: Array) -> void:
 	for pos in cells:
 		dirt.set_cell(local_to_map(to_local(pos)), 0, Vector2i(0,0))
 	update_dirt_percentage()
+	
+func _on_water_update(water: float) -> void:
+	water_level = water
 #endregion

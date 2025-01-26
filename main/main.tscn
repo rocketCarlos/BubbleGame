@@ -63,15 +63,15 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 30.0
-offset_top = -483.0
+offset_top = -499.955
 offset_right = 99.0
-offset_bottom = 1242.0
+offset_bottom = 1225.04
 grow_vertical = 0
 scale = Vector2(0.65, 0.26)
 
 [node name="water" type="Sprite2D" parent="Player/HUD/Container"]
-position = Vector2(115, 976)
-scale = Vector2(0.67, 0.67)
+position = Vector2(120.57, 951)
+scale = Vector2(0.885, 0.885)
 texture = ExtResource("6_1mjde")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

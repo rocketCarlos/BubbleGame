@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c50nctswfiwl0"
+path="res://.godot/imported/rfegona seca 1.ogg-aeb392f4438735ab5b441562caafd054.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sound/mop/rfegona seca 1.ogg"
+dest_files=["res://.godot/imported/rfegona seca 1.ogg-aeb392f4438735ab5b441562caafd054.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dm6rmyrxofsh4"
+path="res://.godot/imported/mojar fregona.ogg-f97ac7d96dbff71f62ed5c1839b3ba4d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sound/mop/mojar fregona.ogg"
+dest_files=["res://.godot/imported/mojar fregona.ogg-f97ac7d96dbff71f62ed5c1839b3ba4d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

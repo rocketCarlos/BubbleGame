@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bm678iuwggrdw"
+path="res://.godot/imported/fregona mojada.ogg-ec62cf266cf54f4ef15b170bd72eca06.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sound/mop/fregona mojada.ogg"
+dest_files=["res://.godot/imported/fregona mojada.ogg-ec62cf266cf54f4ef15b170bd72eca06.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
