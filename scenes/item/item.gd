@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
+	Globals.penalty.emit()
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "modulate", Color.TRANSPARENT, 0.5).set_trans(tween.TRANS_EXPO)
 	

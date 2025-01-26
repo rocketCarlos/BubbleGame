@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bhr136mc1qrjy" path="res://scenes/furniture/furniture.tscn" id="5_0frni"]
 [ext_resource type="PackedScene" uid="uid://c8ne0dc73bdnf" path="res://scenes/item/item.tscn" id="6_7vdbf"]
 [ext_resource type="AudioStream" uid="uid://bm678iuwggrdw" path="res://assets/sound/mop/fregona mojada.ogg" id="7_06haq"]
-[ext_resource type="Texture2D" uid="uid://iay0lklxe2j7" path="res://assets/sprites/background.png" id="8_0ow58"]
+[ext_resource type="Texture2D" uid="uid://b652mm4tsq0kc" path="res://assets/sprites/layout.png" id="7_g6e4i"]
 [ext_resource type="AudioStream" uid="uid://0p4j88qh1h5h" path="res://assets/sound/mop/fregona seca 2.ogg" id="8_4a1nq"]
 [ext_resource type="AudioStream" uid="uid://c50nctswfiwl0" path="res://assets/sound/mop/rfegona seca 1.ogg" id="9_h87lv"]
 [ext_resource type="Texture2D" uid="uid://cb28tqkwsqc4n" path="res://assets/sprites/furnitures/IMG_7179.png" id="10_8oq02"]
@@ -170,8 +170,9 @@ stream = SubResource("AudioStreamRandomizer_ctpju")
 stream = SubResource("AudioStreamRandomizer_ixxd8")
 
 [node name="background" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("8_0ow58")
+position = Vector2(146.52, 128.115)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("7_g6e4i")
 
 [node name="furnitures" type="Node2D" parent="."]
 
@@ -416,7 +417,7 @@ physics_material_override = SubResource("PhysicsMaterial_ddjhm")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallColliders/StaticBody2D"]
 build_mode = 1
-polygon = PackedVector2Array(-1201.68, -251.533, -1216.65, -881.091, -15.4638, -879.16, -15.4638, -376.093, 90.2883, -378.024, 83.3047, -742.047, 1148.81, -738.185, 1131.85, -365.471, 1396.23, -368.368, 1402.21, -868.538, 1908.03, -856.951, 1947.93, 148.216, 1785.32, 141.457, 1781.32, 250.568, 1926.98, 265.051, 1943.94, 1040.41, -214.996, 1040.41, -204.022, 420.51, -1840.19, 417.613, -1818.24, -257.327)
+polygon = PackedVector2Array(-1201.68, -251.533, -1216.65, -881.091, -15.4638, -879.16, -15.4638, -376.093, 90.2883, -378.024, 83.3047, -742.047, 1148.81, -738.185, 1131.85, -365.471, 1396.23, -368.368, 1402.21, -868.538, 1908.03, -856.951, 1947.93, 148.216, 1785.32, 141.457, 1781.32, 250.568, 1926.98, 265.051, 1931.98, 1004.68, -152.144, 1001.79, -191.053, 374.161, -1809.27, 376.092, -1818.24, -257.327)
 
 [node name="Objects" type="Node2D" parent="."]
 

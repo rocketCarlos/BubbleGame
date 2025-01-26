@@ -19,6 +19,7 @@ var penalties: int = 0
 # Called when thecheats node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.no_water.connect(_on_no_water)
+	Globals.penalty.connect(_on_penalty)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -27,7 +28,13 @@ func _process(delta: float) -> void:
 	var zoom = lerp(MIN_ZOOM, MAX_ZOOM, vel_factor)
 	camera.zoom = Vector2(zoom, zoom)
 
+
+#region signal functions
+func _on_penalty() -> void:
+	penalties += 0
+
 func _on_no_water() -> void:
+#endregion
 	var tween = get_tree().create_tween()
 	tween.tween_property(water_icon, "scale", Vector2(1.5, 1.5), 0.25)
 	tween.tween_property(water_icon, "scale", Vector2(1.0, 1.0), 0.25)

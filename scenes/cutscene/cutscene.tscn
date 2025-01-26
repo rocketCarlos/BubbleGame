@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://b7cnerafwfr02"]
+
+[ext_resource type="Texture2D" uid="uid://bofr567gdthwt" path="res://assets/cutscenes/intro 1.png" id="1_cunqn"]
+[ext_resource type="Texture2D" uid="uid://cy8k222nsaibu" path="res://assets/cutscenes/intro 2.png" id="2_vwb8w"]
+[ext_resource type="Texture2D" uid="uid://djvc1o8w4l5dc" path="res://assets/cutscenes/intro 3.png" id="3_vucmy"]
+[ext_resource type="Texture2D" uid="uid://jfc4kjt3jlty" path="res://assets/cutscenes/intro 4.png" id="4_kac74"]
+[ext_resource type="Script" path="res://scenes/cutscene/cutscene.gd" id="5_durnt"]
+[ext_resource type="Texture2D" uid="uid://cydqutxdplus8" path="res://assets/cutscenes/raton pequeño 1.png" id="5_lj436"]
+[ext_resource type="Texture2D" uid="uid://drwp7yhfw6nm0" path="res://assets/cutscenes/raton pequeño 2.png" id="6_vittq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6k8iw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cunqn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vwb8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vucmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kac74")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s4btu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_lj436")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vittq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Cutscene" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_6k8iw")
+script = ExtResource("5_durnt")
+
+[node name="TextureButton" type="AnimatedSprite2D" parent="."]
+position = Vector2(-870, 401)
+sprite_frames = SubResource("SpriteFrames_s4btu")
+autoplay = "default"
+frame_progress = 0.566694
