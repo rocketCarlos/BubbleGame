@@ -16,7 +16,7 @@ script = ExtResource("1_ivnx8")
 z_index = -2
 
 [node name="Player" parent="." instance=ExtResource("1_32a8h")]
-position = Vector2(826, -517)
+position = Vector2(-17, -44)
 
 [node name="HUD" type="CanvasLayer" parent="Player"]
 

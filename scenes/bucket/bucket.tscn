@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://7bk0svwq0tql" path="res://assets/sprites/bucket.png" id="3_pqua7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7fgfa"]
-radius = 252.24
+radius = 200.25
 
 [node name="Bucket" type="Sprite2D"]
 texture = ExtResource("1_x4308")

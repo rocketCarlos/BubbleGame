@@ -255,7 +255,7 @@ position = Vector2(0, -121.69)
 texture = ExtResource("11_n5qu5")
 
 [node name="BigTableWithPapers" parent="furnitures" instance=ExtResource("5_0frni")]
-position = Vector2(299, 9)
+position = Vector2(522, -332)
 metadata/_edit_group_ = true
 
 [node name="Furniture" parent="furnitures/BigTableWithPapers" instance=ExtResource("5_0frni")]
@@ -466,7 +466,7 @@ shape = SubResource("RectangleShape2D_3txtl")
 debug_color = Color(0.466667, 0.7, 0, 0.419608)
 
 [node name="Key" parent="Objects" instance=ExtResource("6_7vdbf")]
-position = Vector2(289, 17)
+position = Vector2(512, -324)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="Objects/Key"]
@@ -545,5 +545,5 @@ scale = Vector2(1.00234, 1.03565)
 texture = ExtResource("21_21s3w")
 
 [node name="Bucket" parent="." instance=ExtResource("22_q28er")]
-position = Vector2(286, -518)
+position = Vector2(-34, 25.9999)
 scale = Vector2(0.797377, 0.752941)

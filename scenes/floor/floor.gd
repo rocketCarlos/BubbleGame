@@ -10,11 +10,11 @@ var water_level: float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	update_dirt_percentage()
 	Globals.clean.connect(_on_clean)
 	Globals.mess.connect(_on_mess)
 	Globals.water_update.connect(_on_water_update)
 	mess_random(25.0)
+	update_dirt_percentage()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

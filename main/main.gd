@@ -20,6 +20,7 @@ var penalties: int = 0
 func _ready() -> void:
 	Globals.no_water.connect(_on_no_water)
 	Globals.penalty.connect(_on_penalty)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

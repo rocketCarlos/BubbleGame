@@ -1,6 +1,9 @@
 extends RigidBody2D
 
 @onready var sprite = $Sprite2D
+@onready var breaking_player = $BreakingPlayer
+
+var already_hit: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,12 +17,16 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	Globals.penalty.emit()
-	var tween = get_tree().create_tween()
-	tween.tween_property(self, "modulate", Color.TRANSPARENT, 0.5).set_trans(tween.TRANS_EXPO)
-	
-	await tween.finished
-	queue_free()
+	if not already_hit:
+		already_hit = true
+		Globals.penalty.emit()
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "modulate", Color.TRANSPARENT, 0.5).set_trans(tween.TRANS_EXPO)
+		await get_tree().create_timer(0.25)
+		breaking_player.play()
+		await tween.finished
+		breaking_player.play()
+		queue_free()
 
 
 func _on_tree_exiting() -> void:
