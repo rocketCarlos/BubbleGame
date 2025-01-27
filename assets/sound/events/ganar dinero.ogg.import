@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dckk7gb7rbl8v"
+path="res://.godot/imported/ganar dinero.ogg-e4161bdebfb49297878bf136682753c8.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sound/events/ganar dinero.ogg"
+dest_files=["res://.godot/imported/ganar dinero.ogg-e4161bdebfb49297878bf136682753c8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

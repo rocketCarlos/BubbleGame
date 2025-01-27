@@ -51,7 +51,9 @@ func _on_clean(cells: Array) -> void:
 	
 func _on_mess(cells: Array) -> void:
 	for pos in cells:
-		dirt.set_cell(local_to_map(to_local(pos)), 0, Vector2i(0,0))
+		if get_cell_tile_data(local_to_map(to_local(pos))):
+			dirt.set_cell(local_to_map(to_local(pos)), 0, Vector2i(0,0))
+	
 	update_dirt_percentage()
 	
 func _on_water_update(water: float) -> void:

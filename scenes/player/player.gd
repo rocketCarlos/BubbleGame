@@ -14,8 +14,10 @@ extends CharacterBody2D
 @onready var dry_steps_player = $DrySetpsPlayer
 @onready var humid_steps_player = $HumidStepsPlayer
 @onready var slip_steps_player = $SlipSetpsPlayer
+@onready var bump_player = $BumpPlayer
 @onready var step_timer = $StepWait
 @onready var bubble_timer = $BubbleWait
+@onready var bump_timer = $BumpWait
 @onready var no_water_player = $NoWater
 #endregion 
 
@@ -41,6 +43,7 @@ var water_level: float = 100.0
 var distance_travelled: float = 0.0
 
 var step_wait: bool = false
+var bump_wait: bool = false
 
 var mop_positions: Dictionary = {
 	"up": Vector2(0, -6),
@@ -219,6 +222,11 @@ func _physics_process(delta: float) -> void:
 			humid_steps_player.play()
 			
 		step_timer.start(wait_time)
+		
+	if get_last_slide_collision() and not bump_player.playing and not bump_wait and get_real_velocity().length() > 25:
+		bump_wait = true
+		bump_timer.start()
+		bump_player.play()
 	
 	move_and_slide()
 
@@ -245,4 +253,7 @@ func _on_step_wait_timeout() -> void:
 
 func _on_bubble_wait_timeout() -> void:
 	buble_wait = false
+	
+func _on_bump_wait_timeout() -> void:
+	bump_wait = false
 #endregion
