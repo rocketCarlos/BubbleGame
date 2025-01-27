@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnt7wsumaa6ks"]
+
+[ext_resource type="Texture2D" uid="uid://cre0blo5wte0n" path="res://icon.svg" id="1_w2nwu"]
+[ext_resource type="Script" path="res://scenes/PenaltyLabel/penalty_label.gd" id="2_2xkr0"]
+[ext_resource type="FontFile" uid="uid://q75m8sfv0hk5" path="res://assets/KIdDOS-Regular.ttf" id="2_u63s7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uhmer"]
+font = ExtResource("2_u63s7")
+font_size = 54
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PenaltyLabel" type="Sprite2D"]
+scale = Vector2(0.315, 0.315)
+texture = ExtResource("1_w2nwu")
+script = ExtResource("2_2xkr0")
+
+[node name="Label" type="Label" parent="."]
+z_index = 10
+texture_filter = 4
+offset_left = -140.0
+offset_top = -35.0
+offset_right = -72.0
+offset_bottom = 20.0
+text = "-20"
+label_settings = SubResource("LabelSettings_uhmer")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8ne0dc73bdnf"]
+[gd_scene load_steps=7 format=3 uid="uid://c8ne0dc73bdnf"]
 
 [ext_resource type="Texture2D" uid="uid://cre0blo5wte0n" path="res://icon.svg" id="1_kje21"]
 [ext_resource type="Script" path="res://scenes/item/item.gd" id="1_qexm5"]
+[ext_resource type="PackedScene" uid="uid://bnt7wsumaa6ks" path="res://scenes/PenaltyLabel/penalty_label.tscn" id="2_lgn0i"]
 [ext_resource type="AudioStream" uid="uid://c0hj421fbnru2" path="res://assets/sound/events/objeto roto.ogg" id="3_dqr7e"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_btk4o"]
@@ -21,6 +22,7 @@ gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_qexm5")
+label_scene = ExtResource("2_lgn0i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

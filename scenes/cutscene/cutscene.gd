@@ -13,9 +13,7 @@ func _process(delta: float) -> void:
 		if frame == 3:
 			var tween = get_tree().create_tween()
 			tween.tween_property(self, "modulate", Color.TRANSPARENT, 1)
-			print("hello")
 			await tween.finished
-			print("ended")
 			Globals.start_game.emit()
 		frame += 1
 		
