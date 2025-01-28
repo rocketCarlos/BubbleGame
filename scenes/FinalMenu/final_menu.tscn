@@ -1,0 +1,175 @@
+[gd_scene load_steps=7 format=3 uid="uid://do6rewmngh1h1"]
+
+[ext_resource type="Script" path="res://scenes/FinalMenu/final_menu.gd" id="1_fwtky"]
+[ext_resource type="Texture2D" uid="uid://dgcnqom6pnuvh" path="res://assets/FinalMenu/background.png" id="2_8fqpu"]
+[ext_resource type="LabelSettings" uid="uid://lnmhypl8elk7" path="res://assets/menu_label_settings.tres" id="3_vbuyh"]
+[ext_resource type="FontFile" uid="uid://q75m8sfv0hk5" path="res://assets/KIdDOS-Regular.ttf" id="4_a0c05"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d1nfv"]
+font = ExtResource("4_a0c05")
+font_size = 60
+outline_size = 17
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xen0c"]
+font = ExtResource("4_a0c05")
+font_size = 60
+outline_size = 17
+outline_color = Color(0, 0, 0, 1)
+
+[node name="FinalMenu" type="Node2D"]
+texture_filter = 4
+position = Vector2(956, 517)
+script = ExtResource("1_fwtky")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_8fqpu")
+
+[node name="TextContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -426.0
+offset_top = -358.0
+offset_right = 547.0
+offset_bottom = 402.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleSuccess" type="Label" parent="TextContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -187.0
+offset_right = 187.0
+offset_bottom = 104.0
+grow_horizontal = 2
+text = "¡Todo limpio!"
+label_settings = ExtResource("3_vbuyh")
+vertical_alignment = 1
+
+[node name="TitleLoss" type="Label" parent="TextContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -351.0
+offset_top = 26.0
+offset_right = 348.0
+offset_bottom = 104.0
+grow_horizontal = 2
+text = "Te quedaste sin tiempo..."
+label_settings = ExtResource("3_vbuyh")
+horizontal_alignment = 1
+
+[node name="DescriptionLoss" type="Label" parent="TextContainer/TitleLoss"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -261.0
+offset_top = 112.54
+offset_right = 261.0
+offset_bottom = 382.54
+grow_horizontal = 2
+grow_vertical = 2
+text = "Vuelve a intentarlo para conseguir dinero. 
+¡Tu nieto necesita ese pompero!"
+label_settings = SubResource("LabelSettings_d1nfv")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TitleAfterBuying" type="Label" parent="TextContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -451.5
+offset_right = 451.5
+offset_bottom = 159.0
+grow_horizontal = 2
+text = "El pompero se ha quedado obsoleto..."
+label_settings = ExtResource("3_vbuyh")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="DescriptionAfterBuying" type="Label" parent="TextContainer/TitleAfterBuying"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = 170.75
+offset_right = 254.0
+offset_bottom = 365.75
+grow_horizontal = 2
+grow_vertical = 2
+text = "Y ahora tu nieto te pide que le compres el siguiente modelo."
+label_settings = SubResource("LabelSettings_xen0c")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -427.0
+offset_top = 109.0
+offset_right = 546.0
+offset_bottom = 344.0
+
+[node name="Exit" type="Button" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.815
+offset_top = -37.5
+offset_right = -47.815
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Volver a la pantalla de inicio"
+
+[node name="PlayAgain" type="Button" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 53.5
+offset_top = -37.5
+offset_right = 278.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Jugar otra vez"
+
+[node name="Buy" type="Button" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -121.0
+offset_top = -137.37
+offset_right = 121.0
+offset_bottom = -30.37
+grow_horizontal = 2
+grow_vertical = 0
+text = "¡Compar pompero!"
+
+[connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Buttons/PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="Buttons/Buy" to="." method="_on_buy_pressed"]

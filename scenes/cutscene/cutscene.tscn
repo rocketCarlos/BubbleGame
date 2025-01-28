@@ -66,10 +66,11 @@ animations = [{
 [node name="Cutscene" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_6k8iw")
 animation = &"initial"
+centered = false
 script = ExtResource("5_durnt")
 
 [node name="TextureButton" type="AnimatedSprite2D" parent="."]
-position = Vector2(-870, 401)
+position = Vector2(89, 943)
 sprite_frames = SubResource("SpriteFrames_s4btu")
 autoplay = "default"
 frame_progress = 0.683439

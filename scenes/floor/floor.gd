@@ -13,7 +13,8 @@ func _ready() -> void:
 	Globals.clean.connect(_on_clean)
 	Globals.mess.connect(_on_mess)
 	Globals.water_update.connect(_on_water_update)
-	mess_random(25.0)
+	# dynamically set the dirt level depending on the level
+	mess_random(lerp(25.0, 75.0, inverse_lerp(0, 5, Globals.level)))
 	update_dirt_percentage()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

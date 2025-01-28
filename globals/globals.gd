@@ -3,6 +3,10 @@ extends Node
 # the % of cleanness. starts at 0% and level is completed at 100%
 var clean_level
 
+# informs about the current level. With each level, the difficulty increases
+# meaning that less time and more dirty cells
+var level: int = 0
+
 # emitted by the bucket when the player enters its area2d to refill water
 signal refill
 
@@ -19,10 +23,16 @@ signal clean(positions: Array)
 signal mess(positions: Array)
 
 # emitted by player when run out of water
-signal no_water()
+signal no_water
 
 # emitted by items when broken
-signal penalty()
+signal penalty
 
 # emitted to start the game
-signal start_game()
+signal start_game
+
+# emitted by the final menu to go to the final screen
+signal title_screen
+
+# emitted by the final menu to advance to the final cutscene
+signal buy_bubble_maker
