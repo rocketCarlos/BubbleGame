@@ -13,7 +13,7 @@ var final_menu_instance: Node = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.start_game.connect(_on_start_game)
-	Globals.stage_cleaned.connect(_on_stage_cleaned)
+	Globals.game_ended.connect(_on_game_ended)
 	Globals.buy_bubble_maker.connect(_on_buy_bubble_maker)
 	Globals.title_screen.connect(_on_title_screen)
 	
@@ -36,10 +36,24 @@ func _on_start_game() -> void:
 	main_instance = main.instantiate()
 	call_deferred("add_child", main_instance)
 
-func _on_stage_cleaned() -> void:
+func _on_game_ended() -> void:
 	final_menu_instance = final_menu.instantiate()
-	# TODO: MANAGE FINAL_MENU CASES
-	final_menu_instance.case = final_menu_instance.cases.LOSS
+	
+	final_menu_instance.value_base_money.text = str(main_instance.GOLD_VICTORY)
+	final_menu_instance.value_penalties.text= '%s * %s = %s' % [main_instance.penalties, main_instance.GOLD_PENALTY, main_instance.penalties*main_instance.GOLD_PENALTY]
+	final_menu_instance.value_time_bonus.text = '%s * %s = %s' % [main_instance.GOLD_EXTRA_PER_SECOND, main_instance.clock.time_left, main_instance.GOLD_EXTRA_PER_SECOND * main_instance.clock.time_left]
+	final_menu_instance.value_total_money.text = str(main_instance.money)
+	final_menu_instance.value_bubble_cost.text = str(main_instance.GOLD_GOAL)
+	
+	match main_instance.final_type:
+		'loss':
+			final_menu_instance.case = final_menu_instance.cases.LOSS
+		'success_and_money':
+			final_menu_instance.case = final_menu_instance.case.SUCCESS_AND_MONEY
+		'success_no_money':
+			final_menu_instance.case = final_menu_instance.case.SUCCESS_NO_MONEY
+	
+	
 	call_deferred("add_child", final_menu_instance) 
 	
 	if main_instance:

@@ -17,3 +17,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	value = inverse_lerp(total_time, 0, timer.time_left) * 100.0
 	minute.rotation = lerp(0.0, 2*PI, value/100.0) + rotation_offset * PI / 180 
+
+
+func _on_timer_timeout() -> void:
+	Globals.timed_out.emit()

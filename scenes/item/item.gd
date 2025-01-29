@@ -1,7 +1,6 @@
 extends RigidBody2D
 
 @onready var sprite = $Sprite2D
-@onready var breaking_player = $BreakingPlayer
 
 @export var label_scene: PackedScene
 
@@ -23,10 +22,7 @@ func _on_body_entered(body: Node) -> void:
 		Globals.penalty.emit()
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "modulate", Color.TRANSPARENT, 0.5).set_trans(tween.TRANS_EXPO)
-		await get_tree().create_timer(0.25).timeout
-		breaking_player.play()
 		await tween.finished
-		breaking_player.play()
 		var label = label_scene.instantiate()
 		label.global_position = global_position
 		call_deferred("add_sibling", label)

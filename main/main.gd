@@ -3,7 +3,8 @@ extends Node2D
 @onready var water_icon = $Player/HUD/Container/water
 @onready var player = $Player
 @onready var camera = $Player/Camera2D
-
+@onready var breaking_sound = $BreakingPlayer
+@onready var clock = $Player/HUD/Container/Clock/Timer
 
 const MIN_SPEED = 0
 @onready var MAX_SPEED = player.MAX_SPEED
@@ -15,11 +16,16 @@ const GOLD_EXTRA_PER_SECOND = 2
 const GOLD_PENALTY = -20
 const GOLD_GOAL = 200
 var penalties: int = 0
+var money: float = 0.0
+
+var final_type: String = ''
 
 # Called when thecheats node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.no_water.connect(_on_no_water)
 	Globals.penalty.connect(_on_penalty)
+	Globals.stage_cleaned.connect(_on_level_ended)
+	Globals.timed_out.connect(_on_level_ended)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,13 +35,12 @@ func _process(delta: float) -> void:
 	var zoom = lerp(MIN_ZOOM, MAX_ZOOM, vel_factor)
 	camera.zoom = Vector2(zoom, zoom)
 
-
 #region signal functions
 func _on_penalty() -> void:
-	penalties += 0
+	penalties += 1
+	breaking_sound.play()
 
 func _on_no_water() -> void:
-#endregion
 	var tween = get_tree().create_tween()
 	tween.tween_property(water_icon, "scale", Vector2(1.5, 1.5), 0.25)
 	tween.tween_property(water_icon, "scale", Vector2(1.0, 1.0), 0.25)
@@ -46,5 +51,17 @@ func _on_no_water() -> void:
 		else:
 			water_icon.rotation = -25
 		await get_tree().create_timer(0.1).timeout
-		
+
+func _on_level_ended() -> void:
+	if Globals.clean_level < 100:
+		final_type = 'loss'
+	else:
+		money = GOLD_VICTORY + GOLD_EXTRA_PER_SECOND * clock.time_left + GOLD_PENALTY * penalties
+		if money >= GOLD_VICTORY:
+			final_type = 'succes_and_money'
+		else:
+			final_type = 'succes_no_money'
+
+	Globals.game_ended.emit()
 	
+#endregion

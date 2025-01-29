@@ -1,18 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8ne0dc73bdnf"]
+[gd_scene load_steps=5 format=3 uid="uid://c8ne0dc73bdnf"]
 
 [ext_resource type="Texture2D" uid="uid://cre0blo5wte0n" path="res://icon.svg" id="1_kje21"]
 [ext_resource type="Script" path="res://scenes/item/item.gd" id="1_qexm5"]
 [ext_resource type="PackedScene" uid="uid://bnt7wsumaa6ks" path="res://scenes/PenaltyLabel/penalty_label.tscn" id="2_lgn0i"]
-[ext_resource type="AudioStream" uid="uid://c0hj421fbnru2" path="res://assets/sound/events/objeto roto.ogg" id="3_dqr7e"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_btk4o"]
 friction = 0.0
 bounce = 10.0
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j5t2u"]
-random_pitch = 2.0
-streams_count = 1
-stream_0/stream = ExtResource("3_dqr7e")
 
 [node name="Item" type="RigidBody2D"]
 y_sort_enabled = true
@@ -28,9 +22,6 @@ label_scene = ExtResource("2_lgn0i")
 visible = false
 z_index = 1
 texture = ExtResource("1_kje21")
-
-[node name="BreakingPlayer" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_j5t2u")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

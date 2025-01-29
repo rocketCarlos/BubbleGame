@@ -13,6 +13,12 @@ signal refill
 # emitted by the progress bar when the room gets 100% clean
 signal stage_cleaned
 
+# emitted by the clock when the timer gets to 0
+signal timed_out
+
+# emitted by the main scene to inform the game controler that the game has ended
+signal game_ended
+
 # emitted by the player to update the water bar
 signal water_update(water_level: float)
 

@@ -1,13 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://do6rewmngh1h1"]
+[gd_scene load_steps=10 format=3 uid="uid://do6rewmngh1h1"]
 
 [ext_resource type="Script" path="res://scenes/FinalMenu/final_menu.gd" id="1_fwtky"]
 [ext_resource type="Texture2D" uid="uid://dgcnqom6pnuvh" path="res://assets/FinalMenu/background.png" id="2_8fqpu"]
 [ext_resource type="LabelSettings" uid="uid://lnmhypl8elk7" path="res://assets/menu_label_settings.tres" id="3_vbuyh"]
 [ext_resource type="FontFile" uid="uid://q75m8sfv0hk5" path="res://assets/KIdDOS-Regular.ttf" id="4_a0c05"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_jwfmo"]
+font = ExtResource("4_a0c05")
+font_size = 77
+outline_size = 17
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u1jhk"]
+font = ExtResource("4_a0c05")
+font_size = 77
+outline_size = 17
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_d1nfv"]
 font = ExtResource("4_a0c05")
 font_size = 60
+outline_size = 17
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_40rga"]
+font = ExtResource("4_a0c05")
+font_size = 77
 outline_size = 17
 outline_color = Color(0, 0, 0, 1)
 
@@ -49,10 +67,105 @@ offset_right = 187.0
 offset_bottom = 104.0
 grow_horizontal = 2
 text = "¡Todo limpio!"
-label_settings = ExtResource("3_vbuyh")
+label_settings = SubResource("LabelSettings_jwfmo")
 vertical_alignment = 1
 
+[node name="MoneyDetail" type="Control" parent="TextContainer/TitleSuccess"]
+anchors_preset = 0
+offset_left = -244.0
+offset_top = 145.0
+offset_right = 727.0
+offset_bottom = 504.0
+
+[node name="BaseMoney" type="Label" parent="TextContainer/TitleSuccess/MoneyDetail"]
+layout_mode = 1
+offset_right = 367.0
+offset_bottom = 78.0
+text = "Salario base:"
+label_settings = ExtResource("3_vbuyh")
+
+[node name="Value" type="Label" parent="TextContainer/TitleSuccess/MoneyDetail/BaseMoney"]
+layout_mode = 0
+offset_left = 279.5
+offset_right = 345.5
+offset_bottom = 51.0
+text = "200"
+label_settings = ExtResource("3_vbuyh")
+
+[node name="Penalties" type="Label" parent="TextContainer/TitleSuccess/MoneyDetail"]
+layout_mode = 1
+offset_top = 74.91
+offset_right = 435.0
+offset_bottom = 152.91
+text = "Penalizaciones:"
+label_settings = ExtResource("3_vbuyh")
+
+[node name="Value" type="Label" parent="TextContainer/TitleSuccess/MoneyDetail/Penalties"]
+offset_left = 338.195
+offset_right = 573.195
+offset_bottom = 51.0
+text = "-20 x 4 = -80"
+label_settings = ExtResource("3_vbuyh")
+
+[node name="TimeBonus" type="Label" parent="TextContainer/TitleSuccess/MoneyDetail"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -29.105
+offset_right = 509.0
+offset_bottom = 21.895
+grow_vertical = 2
+text = "Bonus por tiempo:"
+label_settings = ExtResource("3_vbuyh")
+
+[node name="Value" type="Label" parent="TextContainer/TitleSuccess/MoneyDetail/TimeBonus"]
+offset_left = 366.855
+offset_right = 564.855
+offset_bottom = 51.0
+text = "2 * 40 = 80"
+label_settings = ExtResource("3_vbuyh")
+
+[node name="TotalMoney" type="Label" parent="TextContainer/TitleSuccess/MoneyDetail"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 50.34
+offset_right = 673.0
+offset_bottom = 101.34
+grow_vertical = 2
+text = "Dinero total (ahorrado + obtenido):
+"
+label_settings = ExtResource("3_vbuyh")
+
+[node name="Value" type="Label" parent="TextContainer/TitleSuccess/MoneyDetail/TotalMoney"]
+offset_left = 685.37
+offset_right = 962.37
+offset_bottom = 51.0
+text = "130 + 200 = 330"
+label_settings = ExtResource("3_vbuyh")
+
+[node name="BubbleCost" type="Label" parent="TextContainer/TitleSuccess/MoneyDetail"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -51.0
+offset_right = 357.0
+grow_vertical = 0
+text = "Coste del pompero:"
+label_settings = ExtResource("3_vbuyh")
+
+[node name="Value" type="Label" parent="TextContainer/TitleSuccess/MoneyDetail/BubbleCost"]
+offset_left = 404.12
+offset_right = 470.12
+offset_bottom = 51.0
+text = "200"
+label_settings = ExtResource("3_vbuyh")
+
 [node name="TitleLoss" type="Label" parent="TextContainer"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -63,7 +176,7 @@ offset_right = 348.0
 offset_bottom = 104.0
 grow_horizontal = 2
 text = "Te quedaste sin tiempo..."
-label_settings = ExtResource("3_vbuyh")
+label_settings = SubResource("LabelSettings_u1jhk")
 horizontal_alignment = 1
 
 [node name="DescriptionLoss" type="Label" parent="TextContainer/TitleLoss"]
@@ -86,6 +199,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="TitleAfterBuying" type="Label" parent="TextContainer"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -95,7 +209,7 @@ offset_right = 451.5
 offset_bottom = 159.0
 grow_horizontal = 2
 text = "El pompero se ha quedado obsoleto..."
-label_settings = ExtResource("3_vbuyh")
+label_settings = SubResource("LabelSettings_40rga")
 horizontal_alignment = 1
 autowrap_mode = 3
 

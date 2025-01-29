@@ -8,6 +8,13 @@ extends Node2D
 @onready var title_after_buying = $TextContainer/TitleAfterBuying
 @onready var description_loss = $TextContainer/TitleLoss/DescriptionLoss
 @onready var description_after_buying  = $TextContainer/TitleAfterBuying/DescriptionAfterBuying
+@onready var value_base_money = $TextContainer/TitleSuccess/MoneyDetail/BaseMoney/Value
+@onready var value_penalties = $TextContainer/TitleSuccess/MoneyDetail/Penalties/Value
+@onready var value_time_bonus = $TextContainer/TitleSuccess/MoneyDetail/TimeBonus/Value
+@onready var value_total_money = $TextContainer/TitleSuccess/MoneyDetail/TotalMoney/Value
+@onready var value_bubble_cost = $TextContainer/TitleSuccess/MoneyDetail/BubbleCost/Value
+
+
 
 enum cases{
 	SUCCESS_AND_MONEY,
@@ -69,7 +76,7 @@ func exit_animation() -> void:
 #region signal functions
 func _on_exit_pressed() -> void:
 	print("hello")
-	#disable_all()
+	disable_all()
 	await exit_animation()
 	Globals.title_screen.emit()
 	queue_free()
