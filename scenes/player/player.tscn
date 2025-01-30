@@ -240,7 +240,7 @@ stream = SubResource("AudioStreamRandomizer_o71th")
 
 [node name="NoWater" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_6rh45")
-volume_db = 8.0
+volume_db = 12.0
 
 [node name="BumpPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_xknem")
