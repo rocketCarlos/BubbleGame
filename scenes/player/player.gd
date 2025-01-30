@@ -177,7 +177,7 @@ func _physics_process(delta: float) -> void:
 	# manage water level
 	# -------------------------
 	# water level linearly decreases as distance_travelled increases
-	distance_travelled += velocity.length() * delta
+	distance_travelled += get_real_velocity().length() * delta
 	var water_just_empty = false if water_level == 0 else true
 	water_level = clamp(inverse_lerp(WATER_DISTANCE, 0.0, distance_travelled) * 100.0, 0.0, 100.0)
 	if water_level == 0 and water_just_empty:
