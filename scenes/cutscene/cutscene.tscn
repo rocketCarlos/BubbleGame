@@ -65,7 +65,7 @@ animations = [{
 
 [node name="Cutscene" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_6k8iw")
-animation = &"initial"
+animation = &"final"
 centered = false
 script = ExtResource("5_durnt")
 

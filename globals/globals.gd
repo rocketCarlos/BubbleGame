@@ -7,6 +7,9 @@ var clean_level
 # meaning that less time and more dirty cells
 var level: int = 0
 
+# values for the final menu money description
+var final_menu_values: Dictionary
+
 # emitted by the bucket when the player enters its area2d to refill water
 signal refill
 

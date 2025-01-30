@@ -28,6 +28,13 @@ var case: cases
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide_all()
+	
+	value_base_money.text = Globals.final_menu_values['value_base_money']
+	value_penalties.text = Globals.final_menu_values['value_penalties']
+	value_time_bonus.text = Globals.final_menu_values['value_time_bonus']
+	value_total_money.text = Globals.final_menu_values['value_total_money']
+	value_bubble_cost.text = Globals.final_menu_values['value_bubble_cost']
+	
 	match case:
 		cases.SUCCESS_AND_MONEY:
 			button_buy.show()
