@@ -13,6 +13,7 @@ extends Node2D
 @onready var value_time_bonus = $TextContainer/TitleSuccess/MoneyDetail/TimeBonus/Value
 @onready var value_total_money = $TextContainer/TitleSuccess/MoneyDetail/TotalMoney/Value
 @onready var value_bubble_cost = $TextContainer/TitleSuccess/MoneyDetail/BubbleCost/Value
+@onready var money_sound = $Money
 
 
 
@@ -39,10 +40,12 @@ func _ready() -> void:
 		cases.SUCCESS_AND_MONEY:
 			button_buy.show()
 			title_success.show()
+			money_sound.play()
 		cases.SUCCESS_NO_MONEY:
 			button_exit.show()
 			button_play_again.show()
 			title_success.show()
+			money_sound.play()
 		cases.LOSS:
 			button_exit.show()
 			button_play_again.show()

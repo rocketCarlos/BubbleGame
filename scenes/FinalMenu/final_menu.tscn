@@ -1,9 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://do6rewmngh1h1"]
+[gd_scene load_steps=20 format=3 uid="uid://do6rewmngh1h1"]
 
 [ext_resource type="Script" path="res://scenes/FinalMenu/final_menu.gd" id="1_fwtky"]
 [ext_resource type="Texture2D" uid="uid://dgcnqom6pnuvh" path="res://assets/FinalMenu/background.png" id="2_8fqpu"]
 [ext_resource type="LabelSettings" uid="uid://lnmhypl8elk7" path="res://assets/menu_label_settings.tres" id="3_vbuyh"]
 [ext_resource type="FontFile" uid="uid://q75m8sfv0hk5" path="res://assets/KIdDOS-Regular.ttf" id="4_a0c05"]
+[ext_resource type="AudioStream" uid="uid://dckk7gb7rbl8v" path="res://assets/sound/events/ganar dinero.ogg" id="5_jt6vw"]
+[ext_resource type="Texture2D" uid="uid://pmoyq2mybj6p" path="res://assets/FinalMenu/menu de pausa/volver a inicio/volver al inicio1.png" id="5_owkc0"]
+[ext_resource type="Texture2D" uid="uid://bx8p3vfldl813" path="res://assets/FinalMenu/menu de pausa/volver a inicio/volver al inicio3.png" id="6_fk5x4"]
+[ext_resource type="Texture2D" uid="uid://cut3lvl8g6fr0" path="res://assets/FinalMenu/menu de pausa/volver a inicio/volver al inicio2.png" id="7_68ep6"]
+[ext_resource type="Texture2D" uid="uid://dr0b6v4vjrcgr" path="res://assets/FinalMenu/menu de pausa/reintentar/reintentar1.png" id="8_fr5rj"]
+[ext_resource type="Texture2D" uid="uid://sh7o60f0xea5" path="res://assets/FinalMenu/menu de pausa/reintentar/reintentar3.png" id="9_gx5dl"]
+[ext_resource type="Texture2D" uid="uid://e1qc7r5hqlyu" path="res://assets/FinalMenu/menu de pausa/reintentar/reintentar2.png" id="10_v8fyg"]
+[ext_resource type="Texture2D" uid="uid://plmx7pc4fhn2" path="res://assets/FinalMenu/menu de pausa/Comprar/comprar1.png" id="11_njiog"]
+[ext_resource type="Texture2D" uid="uid://bnnm5p0vd84dx" path="res://assets/FinalMenu/menu de pausa/Comprar/comprar3.png" id="12_q2i0d"]
+[ext_resource type="Texture2D" uid="uid://ccmrj4hx0sebg" path="res://assets/FinalMenu/menu de pausa/Comprar/comprar2.png" id="13_pqcax"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jwfmo"]
 font = ExtResource("4_a0c05")
@@ -58,6 +68,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TitleSuccess" type="Label" parent="TextContainer"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -169,7 +180,6 @@ text = "200"
 label_settings = ExtResource("3_vbuyh")
 
 [node name="TitleLoss" type="Label" parent="TextContainer"]
-visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -237,56 +247,75 @@ autowrap_mode = 3
 
 [node name="Buttons" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_left = -427.0
-offset_top = 109.0
-offset_right = 546.0
-offset_bottom = 344.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -419.0
+offset_top = 168.0
+offset_right = 554.0
+offset_bottom = 403.0
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="Exit" type="Button" parent="Buttons"]
+[node name="Exit" type="TextureButton" parent="Buttons"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -272.815
-offset_top = -37.5
-offset_right = -47.815
-offset_bottom = 37.5
+offset_left = -362.5
+offset_top = -132.5
+offset_right = 73.5
+offset_bottom = 227.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Volver a la pantalla de inicio"
+scale = Vector2(0.555, 0.555)
+texture_normal = ExtResource("5_owkc0")
+texture_pressed = ExtResource("6_fk5x4")
+texture_hover = ExtResource("7_68ep6")
 
-[node name="PlayAgain" type="Button" parent="Buttons"]
+[node name="PlayAgain" type="TextureButton" parent="Buttons"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 53.5
-offset_top = -37.5
-offset_right = 278.5
-offset_bottom = 37.5
+offset_left = 83.5
+offset_top = -96.5
+offset_right = 618.5
+offset_bottom = 171.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Jugar otra vez"
+scale = Vector2(0.555, 0.555)
+texture_normal = ExtResource("8_fr5rj")
+texture_pressed = ExtResource("9_gx5dl")
+texture_hover = ExtResource("10_v8fyg")
 
-[node name="Buy" type="Button" parent="Buttons"]
+[node name="Buy" type="TextureButton" parent="Buttons"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -121.0
-offset_top = -137.37
-offset_right = 121.0
-offset_bottom = -30.37
+offset_left = -137.5
+offset_top = -221.0
+offset_right = 370.5
+offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "¡Compar pompero!"
+scale = Vector2(0.585, 0.585)
+texture_normal = ExtResource("11_njiog")
+texture_pressed = ExtResource("12_q2i0d")
+texture_hover = ExtResource("13_pqcax")
+
+[node name="Money" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jt6vw")
 
 [connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Buttons/PlayAgain" to="." method="_on_play_again_pressed"]
