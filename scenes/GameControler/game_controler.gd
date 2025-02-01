@@ -41,8 +41,8 @@ func _on_game_ended() -> void:
 	
 	Globals.final_menu_values = {
 		'value_base_money' : str(main_instance.GOLD_VICTORY),
-		'value_penalties' : '%.0f * %.0f = %.0f' % [main_instance.penalties, main_instance.GOLD_PENALTY, main_instance.penalties*main_instance.GOLD_PENALTY],
-		'value_time_bonus' : '%.0f * %.0f = %.0f' % [main_instance.GOLD_EXTRA_PER_SECOND, main_instance.clock.time_left, main_instance.GOLD_EXTRA_PER_SECOND * main_instance.clock.time_left],
+		'value_penalties' : '%.0f x %.0f = %.0f' % [main_instance.penalties, main_instance.GOLD_PENALTY, main_instance.penalties*main_instance.GOLD_PENALTY],
+		'value_time_bonus' : '%.0f x %.0f = %.0f' % [main_instance.GOLD_EXTRA_PER_SECOND, main_instance.clock.time_left, main_instance.GOLD_EXTRA_PER_SECOND * main_instance.clock.time_left],
 		'value_total_money' : '%.0f' % [main_instance.money],
 		'value_bubble_cost' : '%.0f' % [main_instance.GOLD_GOAL],
 	}

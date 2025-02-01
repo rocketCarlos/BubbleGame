@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmrodrqtlyff1"
-path="res://.godot/imported/cover.jpg-2ebe24bdbffa54435659abb523ae6d62.ctex"
+uid="uid://cw1jbvt4yo2ne"
+path="res://.godot/imported/pistola 3.png-260af2dd6a57f101537843a2a547951b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cover.jpg"
-dest_files=["res://.godot/imported/cover.jpg-2ebe24bdbffa54435659abb523ae6d62.ctex"]
+source_file="res://assets/cutscenes/pistola 3.png"
+dest_files=["res://.godot/imported/pistola 3.png-260af2dd6a57f101537843a2a547951b.ctex"]
 
 [params]
 

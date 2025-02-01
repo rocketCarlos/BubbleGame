@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djrraspio3nac"
-path="res://.godot/imported/intro 4.png-b5545aac3266e8e76c4ee880e05b0fc2.ctex"
+uid="uid://cfu4hrj7s4yme"
+path="res://.godot/imported/pistola 4.png-abdf1d9b4e9d87db31dbda341c48533a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cutscenes/intro 4.png"
-dest_files=["res://.godot/imported/intro 4.png-b5545aac3266e8e76c4ee880e05b0fc2.ctex"]
+source_file="res://assets/cutscenes/pistola 4.png"
+dest_files=["res://.godot/imported/pistola 4.png-abdf1d9b4e9d87db31dbda341c48533a.ctex"]
 
 [params]
 

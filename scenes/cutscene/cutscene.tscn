@@ -1,37 +1,46 @@
-[gd_scene load_steps=14 format=3 uid="uid://b7cnerafwfr02"]
+[gd_scene load_steps=17 format=3 uid="uid://b7cnerafwfr02"]
 
-[ext_resource type="Texture2D" uid="uid://p6l774ccxxti" path="res://assets/final_cutscene/pistola 2.png" id="1_0bjr4"]
-[ext_resource type="Texture2D" uid="uid://bofr567gdthwt" path="res://assets/cutscenes/intro 1.png" id="1_cunqn"]
-[ext_resource type="Texture2D" uid="uid://be6gvmmkcevya" path="res://assets/final_cutscene/pistola 3.png" id="2_6h20i"]
-[ext_resource type="Texture2D" uid="uid://cy8k222nsaibu" path="res://assets/cutscenes/intro 2.png" id="2_vwb8w"]
-[ext_resource type="Texture2D" uid="uid://c6e2wk3mc7fhv" path="res://assets/final_cutscene/pistola 4.png" id="3_42s6u"]
-[ext_resource type="Texture2D" uid="uid://djvc1o8w4l5dc" path="res://assets/cutscenes/intro 3.png" id="3_vucmy"]
-[ext_resource type="Texture2D" uid="uid://jfc4kjt3jlty" path="res://assets/cutscenes/intro 4.png" id="4_kac74"]
-[ext_resource type="Texture2D" uid="uid://btx2v1sk23lij" path="res://assets/final_cutscene/pistola 5.png" id="4_uaroa"]
+[ext_resource type="Texture2D" uid="uid://hprkdbnyp5jq" path="res://assets/cutscenes/intro 1.png" id="1_cunqn"]
+[ext_resource type="Texture2D" uid="uid://cyx14bfq6i84h" path="res://assets/cutscenes/1.png" id="1_gef6u"]
+[ext_resource type="Texture2D" uid="uid://bum2rmqotyqkw" path="res://assets/cutscenes/pistola 2.png" id="2_15170"]
+[ext_resource type="Texture2D" uid="uid://c1ri3keprrky5" path="res://assets/cutscenes/intro 2.png" id="2_vwb8w"]
+[ext_resource type="Texture2D" uid="uid://cw1jbvt4yo2ne" path="res://assets/cutscenes/pistola 3.png" id="3_s0sx5"]
+[ext_resource type="Texture2D" uid="uid://bo5hap0irc4nj" path="res://assets/cutscenes/intro 3.png" id="3_vucmy"]
+[ext_resource type="Texture2D" uid="uid://djrraspio3nac" path="res://assets/cutscenes/intro 4.png" id="4_kac74"]
+[ext_resource type="Texture2D" uid="uid://cfu4hrj7s4yme" path="res://assets/cutscenes/pistola 4.png" id="4_rltfm"]
 [ext_resource type="Script" path="res://scenes/cutscene/cutscene.gd" id="5_durnt"]
 [ext_resource type="Texture2D" uid="uid://cydqutxdplus8" path="res://assets/cutscenes/raton pequeño 1.png" id="5_lj436"]
+[ext_resource type="Texture2D" uid="uid://cw3u4pnytn4dx" path="res://assets/cutscenes/pistola 5.png" id="5_sywty"]
+[ext_resource type="Texture2D" uid="uid://de5r7nvfqvvx1" path="res://assets/cover.png" id="6_kjuul"]
 [ext_resource type="Texture2D" uid="uid://drwp7yhfw6nm0" path="res://assets/cutscenes/raton pequeño 2.png" id="6_vittq"]
+[ext_resource type="AudioStream" uid="uid://d27kydqxv2tly" path="res://assets/sound/Intro.ogg" id="14_50g8n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6k8iw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_0bjr4")
+"texture": ExtResource("1_gef6u")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_6h20i")
+"texture": ExtResource("2_15170")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_42s6u")
+"texture": ExtResource("3_s0sx5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_uaroa")
+"texture": ExtResource("4_rltfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sywty")
 }],
 "loop": true,
 "name": &"final",
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kjuul")
+}, {
 "duration": 1.0,
 "texture": ExtResource("1_cunqn")
 }, {
@@ -65,7 +74,7 @@ animations = [{
 
 [node name="Cutscene" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_6k8iw")
-animation = &"final"
+animation = &"initial"
 centered = false
 script = ExtResource("5_durnt")
 
@@ -74,3 +83,6 @@ position = Vector2(89, 943)
 sprite_frames = SubResource("SpriteFrames_s4btu")
 autoplay = "default"
 frame_progress = 0.683439
+
+[node name="IntroPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_50g8n")
