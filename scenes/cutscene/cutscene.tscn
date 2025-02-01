@@ -72,7 +72,7 @@ animations = [{
 [node name="Cutscene" type="AnimatedSprite2D"]
 z_index = -1
 sprite_frames = SubResource("SpriteFrames_6k8iw")
-animation = &"initial"
+animation = &"final"
 centered = false
 script = ExtResource("5_durnt")
 menu_scene = ExtResource("12_wu7qd")

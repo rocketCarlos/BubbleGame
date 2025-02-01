@@ -15,8 +15,20 @@ func _process(delta: float) -> void:
 		intro_music.play()
 		
 	if not disabled:
-		if Input.is_action_just_pressed("accelerate"):
-			if frame == 3 and animation == "initial" or frame == 1 and animation == "final":
+		if frame == 1 and animation == "final":
+				match Globals.level:
+					0:
+						frame = 1
+					1: 
+						frame = 2
+					2: 
+						frame = 3
+					3: 
+						frame = 4
+					_: 
+						frame = 4
+		if Input.is_action_just_pressed("accelerate"):			
+			if frame == 3 and animation == "initial" or frame > 0 and animation == "final":
 				var tween = get_tree().create_tween()
 				tween.tween_property(self, "modulate", Color.TRANSPARENT, 1)
 				tween.parallel().tween_property(intro_music, "volume_db", -80, 1)
@@ -28,6 +40,7 @@ func _process(delta: float) -> void:
 					var menu_instance = menu_scene.instantiate()
 					menu_instance.case = menu_instance.cases.AFTER_BUYING
 					call_deferred("add_sibling", menu_instance)
+					call_deferred("queue_free")
 					
 			frame += 1
 		

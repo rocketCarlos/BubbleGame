@@ -62,7 +62,6 @@ func _on_level_ended() -> void:
 		final_type = 'loss'
 	else:
 		money = GOLD_VICTORY + GOLD_EXTRA_PER_SECOND * clock.time_left + GOLD_PENALTY * penalties
-		print(money)
 		if money >= GOLD_GOAL:
 			final_type = 'success_and_money'
 		else:

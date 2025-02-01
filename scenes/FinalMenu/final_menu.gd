@@ -87,10 +87,10 @@ func exit_animation() -> void:
 
 #region signal functions
 func _on_exit_pressed() -> void:
-	print("hello")
 	disable_all()
 	await exit_animation()
 	Globals.title_screen.emit()
+	Globals.level = 0
 	queue_free()
 	
 

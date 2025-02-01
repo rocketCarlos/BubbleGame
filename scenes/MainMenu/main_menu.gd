@@ -9,6 +9,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	cutscene.disabled = true
+	cutscene.animation = "initial"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,6 +19,7 @@ func _process(delta: float) -> void:
 
 func _on_start_pressed() -> void:
 	start_button.disabled = true
+	credits_button.disabled = true
 	var tween = get_tree().create_tween()
 	tween.tween_property(background, "modulate", Color.TRANSPARENT, 1)
 	await tween.finished

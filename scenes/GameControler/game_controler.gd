@@ -30,9 +30,9 @@ func _process(delta: float) -> void:
 
 #region signal functions
 func _on_start_game() -> void:
-	if cutscene_instance:
-		cutscene_instance.queue_free()
-		cutscene_instance = null
+	#if cutscene_instance:
+	#	cutscene_instance.queue_free()
+	#	cutscene_instance = null
 		
 	if main_instance:
 		main_instance.call_deferred("queue_free")
@@ -65,7 +65,7 @@ func _on_game_ended() -> void:
 			final_menu_instance.case = final_menu_instance.cases.SUCCESS_NO_MONEY
 	
 	
-	call_deferred("add_child", final_menu_instance) 
+	call_deferred("add_child", final_menu_instance)
 
 		
 func _on_buy_bubble_maker() -> void:
@@ -83,6 +83,9 @@ func _on_title_screen() -> void:
 	if main_menu_instance:
 		main_menu_instance.call_deferred("queue_free")
 		main_menu_instance = null
+	if main_instance:
+		main_instance.call_deferred("queue_free")
+		main_instance = null
 		
 	main_menu_instance = main_menu_scene.instantiate()
 	call_deferred("add_child", main_menu_instance)
