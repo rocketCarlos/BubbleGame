@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://kkbgeyekblat"]
+[gd_scene load_steps=56 format=4 uid="uid://kkbgeyekblat"]
 
 [ext_resource type="Texture2D" uid="uid://c7d1aj3vxcif5" path="res://assets/sprites/tiles/b-sheet.png" id="1_4vp7i"]
 [ext_resource type="Script" path="res://scenes/floor/floor.gd" id="1_ilsrn"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://biwue5wcicp6r" path="res://assets/sprites/furnitures/IMG_7181.png" id="11_gbvyk"]
 [ext_resource type="Texture2D" uid="uid://pglq07kx3nsg" path="res://assets/sprites/furnitures/IMG_7180.png" id="11_n5qu5"]
 [ext_resource type="Texture2D" uid="uid://cx8dukhs0fpf6" path="res://assets/sprites/furnitures/IMG_7182.png" id="12_rnbwx"]
+[ext_resource type="Texture2D" uid="uid://dukhvobt7bwk2" path="res://assets/sprites/objects/IMG_7253.png" id="13_dqi1b"]
 [ext_resource type="Texture2D" uid="uid://civfgei5jnjw4" path="res://assets/sprites/furnitures/IMG_7183.png" id="14_86wao"]
 [ext_resource type="Texture2D" uid="uid://bck0afbt7gde2" path="res://assets/sprites/furnitures/IMG_7186.png" id="15_5tpic"]
 [ext_resource type="Texture2D" uid="uid://dcqfuhpgfqmh" path="res://assets/sprites/furnitures/IMG_7184.png" id="15_qyole"]
@@ -28,10 +29,12 @@
 [ext_resource type="Texture2D" uid="uid://b2kfcnode8jcm" path="res://assets/sprites/objects/IMG_7233.png" id="24_w8v4l"]
 [ext_resource type="Texture2D" uid="uid://b2l0odjfiqctq" path="res://assets/sprites/objects/IMG_7234.png" id="25_b8ywv"]
 [ext_resource type="Texture2D" uid="uid://bs2kseh63lkpg" path="res://assets/sprites/objects/IMG_7235.png" id="26_kwm76"]
+[ext_resource type="Texture2D" uid="uid://bgh8u4jurbdt6" path="res://assets/sprites/objects/IMG_7254.png" id="26_wwm1g"]
 [ext_resource type="Texture2D" uid="uid://cmlkj8ywwgea7" path="res://assets/sprites/objects/IMG_7236.png" id="27_awujw"]
 [ext_resource type="Texture2D" uid="uid://b8fdlpghah7n2" path="res://assets/sprites/objects/IMG_7237.png" id="28_n4k5b"]
 [ext_resource type="Texture2D" uid="uid://csj758k7j2fmp" path="res://assets/sprites/objects/IMG_7231.png" id="29_tigc8"]
 [ext_resource type="Texture2D" uid="uid://cwie38guvkfp7" path="res://assets/sprites/objects/IMG_7238.png" id="30_y42em"]
+[ext_resource type="Texture2D" uid="uid://b2ngg7k3x1m66" path="res://assets/sprites/objects/IMG_7267.png" id="31_nodl4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gdprk"]
 texture = ExtResource("1_4vp7i")
@@ -163,6 +166,9 @@ size = Vector2(220, 138.83)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aypoi"]
 size = Vector2(206.25, 177)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvh8s"]
+size = Vector2(227.015, 188)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2yju"]
 size = Vector2(95.9993, 396)
 
@@ -270,6 +276,17 @@ position = Vector2(0, -227.52)
 [node name="Sprite2D" type="Sprite2D" parent="furnitures/TableWithPaper"]
 position = Vector2(0, -121.69)
 texture = ExtResource("11_n5qu5")
+
+[node name="Horse" parent="furnitures" instance=ExtResource("5_0frni")]
+position = Vector2(-696, -714)
+metadata/_edit_group_ = true
+
+[node name="Furniture" parent="furnitures/Horse" instance=ExtResource("5_0frni")]
+position = Vector2(113.77, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="furnitures/Horse"]
+position = Vector2(67.47, -66.97)
+texture = ExtResource("13_dqi1b")
 
 [node name="BigTableWithPapers" parent="furnitures" instance=ExtResource("5_0frni")]
 position = Vector2(522, -332)
@@ -490,7 +507,7 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="Objects/Origami3"]
 scale = Vector2(0.185, 0.185)
-texture = ExtResource("27_awujw")
+texture = ExtResource("26_wwm1g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Origami3"]
 position = Vector2(-14.5, 5)
@@ -551,6 +568,20 @@ texture = ExtResource("28_n4k5b")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/OrigamiObject2"]
 position = Vector2(23.89, 26.5)
 shape = SubResource("RectangleShape2D_aypoi")
+debug_color = Color(0.466667, 0.7, 0, 0.419608)
+
+[node name="MusicalNote" parent="Objects" instance=ExtResource("6_7vdbf")]
+position = Vector2(1601, -718)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Objects/MusicalNote"]
+position = Vector2(3.5635, 15.1453)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("31_nodl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/MusicalNote"]
+position = Vector2(13.5076, 50)
+shape = SubResource("RectangleShape2D_xvh8s")
 debug_color = Color(0.466667, 0.7, 0, 0.419608)
 
 [node name="Sword" parent="Objects" instance=ExtResource("6_7vdbf")]

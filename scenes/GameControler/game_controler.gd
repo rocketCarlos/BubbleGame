@@ -9,6 +9,9 @@ var cutscene_instance: Node = null
 @export var final_menu: PackedScene
 var final_menu_instance: Node = null
 
+@export var main_menu_scene: PackedScene
+var main_menu_instance: Node = null
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,11 +20,9 @@ func _ready() -> void:
 	Globals.buy_bubble_maker.connect(_on_buy_bubble_maker)
 	Globals.title_screen.connect(_on_title_screen)
 	
-	cutscene_instance = cutscene.instantiate()
-	cutscene_instance.animation = "initial"
-	call_deferred("add_child", cutscene_instance)
-
-
+	main_menu_instance = main_menu_scene.instantiate()
+	call_deferred("add_child", main_menu_instance)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -36,6 +37,10 @@ func _on_start_game() -> void:
 	if main_instance:
 		main_instance.call_deferred("queue_free")
 		main_instance = null
+		
+	if main_menu_instance:
+		main_menu_instance.call_deferred("queue_free")
+		main_menu_instance = null
 		
 	main_instance = main.instantiate()
 	call_deferred("add_child", main_instance)
@@ -75,7 +80,10 @@ func _on_buy_bubble_maker() -> void:
 	call_deferred("add_child", cutscene_instance)
 	
 func _on_title_screen() -> void:
-	cutscene_instance = cutscene.instantiate()
-	cutscene_instance.animation = "initial"
-	call_deferred("add_child", cutscene_instance)
+	if main_menu_instance:
+		main_menu_instance.call_deferred("queue_free")
+		main_menu_instance = null
+		
+	main_menu_instance = main_menu_scene.instantiate()
+	call_deferred("add_child", main_menu_instance)
 #endregion
