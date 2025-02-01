@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ijedeehk4gbp"]
+
+[ext_resource type="Texture2D" uid="uid://2r3un2ijw6j7" path="res://assets/sprites/Barra_Vacia_alt.png" id="1_72aqg"]
+[ext_resource type="Script" path="res://scenes/water_bar/water_bar.gd" id="2_yp4xf"]
+
+[node name="WaterBar" type="TextureProgressBar"]
+offset_right = 69.0
+offset_bottom = 1725.0
+scale = Vector2(0.2, 0.2)
+step = 0.1
+value = 34.0
+fill_mode = 3
+texture_under = ExtResource("1_72aqg")
+texture_progress = ExtResource("1_72aqg")
+tint_under = Color(0.658824, 0.658824, 0.658824, 0.243137)
+tint_progress = Color(0.2924, 0.420827, 0.43, 1)
+script = ExtResource("2_yp4xf")

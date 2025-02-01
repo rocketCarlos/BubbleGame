@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cpqxcbxtbv4g8"
+path="res://.godot/imported/Derrape 1.ogg-7a609e67ca41846f20f8c688faf571f0.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sound/steps/slip/Derrape 1.ogg"
+dest_files=["res://.godot/imported/Derrape 1.ogg-7a609e67ca41846f20f8c688faf571f0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

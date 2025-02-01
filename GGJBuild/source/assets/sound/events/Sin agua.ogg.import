@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://3wmsq6rn68fw"
+path="res://.godot/imported/Sin agua.ogg-d024edd9173d86b82697773ad781dd0c.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sound/events/Sin agua.ogg"
+dest_files=["res://.godot/imported/Sin agua.ogg-d024edd9173d86b82697773ad781dd0c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

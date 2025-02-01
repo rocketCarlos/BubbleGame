@@ -1,0 +1,2 @@
+La build HTML necesita activar el soporte al sharedArrayBuffer. Puede jugarse en cualquier navegador común
+Está subido a https://wender0.itch.io/babelek y se puede jugar desde ahí

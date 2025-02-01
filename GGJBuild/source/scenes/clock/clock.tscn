@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpf78h7wx1uy3"]
+
+[ext_resource type="Texture2D" uid="uid://cvya05tstbee5" path="res://assets/sprites/Reloj.png" id="1_ar784"]
+[ext_resource type="Script" path="res://scenes/clock/clock.gd" id="2_bvd0m"]
+[ext_resource type="Texture2D" uid="uid://djdoyn6281mm2" path="res://assets/sprites/Minutero.png" id="2_ltxm8"]
+
+[node name="Clock" type="TextureProgressBar"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.5
+offset_top = -101.5
+offset_right = 104.5
+offset_bottom = 101.5
+grow_horizontal = 2
+grow_vertical = 2
+value = 22.0
+fill_mode = 4
+radial_center_offset = Vector2(3.63, 0)
+texture_under = ExtResource("1_ar784")
+texture_progress = ExtResource("1_ar784")
+tint_progress = Color(1, 0.64, 0.64, 1)
+script = ExtResource("2_bvd0m")
+metadata/_edit_use_anchors_ = true
+
+[node name="Minute" type="Sprite2D" parent="."]
+position = Vector2(108.18, 100.655)
+rotation = 0.0453786
+texture = ExtResource("2_ltxm8")
+offset = Vector2(-1.89, -39.365)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

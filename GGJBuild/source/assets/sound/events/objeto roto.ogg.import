@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c0hj421fbnru2"
+path="res://.godot/imported/objeto roto.ogg-143adb89f6119203b68b52b2bcf7448e.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sound/events/objeto roto.ogg"
+dest_files=["res://.godot/imported/objeto roto.ogg-143adb89f6119203b68b52b2bcf7448e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

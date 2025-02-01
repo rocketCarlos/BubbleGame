@@ -1,0 +1,87 @@
+[gd_scene load_steps=17 format=3 uid="uid://b7cnerafwfr02"]
+
+[ext_resource type="Texture2D" uid="uid://hprkdbnyp5jq" path="res://assets/cutscenes/intro 1.png" id="1_cunqn"]
+[ext_resource type="Texture2D" uid="uid://cyx14bfq6i84h" path="res://assets/cutscenes/1.png" id="1_gef6u"]
+[ext_resource type="Texture2D" uid="uid://bum2rmqotyqkw" path="res://assets/cutscenes/pistola 2.png" id="2_15170"]
+[ext_resource type="Texture2D" uid="uid://c1ri3keprrky5" path="res://assets/cutscenes/intro 2.png" id="2_vwb8w"]
+[ext_resource type="Texture2D" uid="uid://cw1jbvt4yo2ne" path="res://assets/cutscenes/pistola 3.png" id="3_s0sx5"]
+[ext_resource type="Texture2D" uid="uid://bo5hap0irc4nj" path="res://assets/cutscenes/intro 3.png" id="3_vucmy"]
+[ext_resource type="Texture2D" uid="uid://djrraspio3nac" path="res://assets/cutscenes/intro 4.png" id="4_kac74"]
+[ext_resource type="Texture2D" uid="uid://cfu4hrj7s4yme" path="res://assets/cutscenes/pistola 4.png" id="4_rltfm"]
+[ext_resource type="Script" path="res://scenes/cutscene/cutscene.gd" id="5_durnt"]
+[ext_resource type="Texture2D" uid="uid://cydqutxdplus8" path="res://assets/cutscenes/raton pequeño 1.png" id="5_lj436"]
+[ext_resource type="Texture2D" uid="uid://cw3u4pnytn4dx" path="res://assets/cutscenes/pistola 5.png" id="5_sywty"]
+[ext_resource type="Texture2D" uid="uid://drwp7yhfw6nm0" path="res://assets/cutscenes/raton pequeño 2.png" id="6_vittq"]
+[ext_resource type="PackedScene" uid="uid://do6rewmngh1h1" path="res://scenes/FinalMenu/final_menu.tscn" id="12_wu7qd"]
+[ext_resource type="AudioStream" uid="uid://d27kydqxv2tly" path="res://assets/sound/Intro.ogg" id="14_50g8n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6k8iw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gef6u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_15170")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s0sx5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rltfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sywty")
+}],
+"loop": true,
+"name": &"final",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cunqn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vwb8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vucmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kac74")
+}],
+"loop": true,
+"name": &"initial",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s4btu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_lj436")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vittq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Cutscene" type="AnimatedSprite2D"]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_6k8iw")
+animation = &"final"
+centered = false
+script = ExtResource("5_durnt")
+menu_scene = ExtResource("12_wu7qd")
+
+[node name="TextureButton" type="AnimatedSprite2D" parent="."]
+position = Vector2(89, 943)
+sprite_frames = SubResource("SpriteFrames_s4btu")
+autoplay = "default"
+frame_progress = 0.683439
+
+[node name="IntroPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_50g8n")

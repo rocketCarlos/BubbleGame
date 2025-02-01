@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8ne0dc73bdnf"]
+
+[ext_resource type="Texture2D" uid="uid://cre0blo5wte0n" path="res://icon.svg" id="1_kje21"]
+[ext_resource type="Script" path="res://scenes/item/item.gd" id="1_qexm5"]
+[ext_resource type="PackedScene" uid="uid://bnt7wsumaa6ks" path="res://scenes/PenaltyLabel/penalty_label.tscn" id="2_lgn0i"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_btk4o"]
+friction = 0.0
+bounce = 10.0
+
+[node name="Item" type="RigidBody2D"]
+y_sort_enabled = true
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_btk4o")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_qexm5")
+label_scene = ExtResource("2_lgn0i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+texture = ExtResource("1_kje21")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

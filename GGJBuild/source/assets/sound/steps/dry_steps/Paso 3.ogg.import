@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://djokxebvnx188"
+path="res://.godot/imported/Paso 3.ogg-d474d95af32cad7433d0873e0460e143.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sound/steps/dry_steps/Paso 3.ogg"
+dest_files=["res://.godot/imported/Paso 3.ogg-d474d95af32cad7433d0873e0460e143.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

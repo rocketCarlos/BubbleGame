@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://lnmhypl8elk7"]
+
+[ext_resource type="FontFile" uid="uid://q75m8sfv0hk5" path="res://assets/KIdDOS-Regular.ttf" id="1_1i2ve"]
+
+[resource]
+font = ExtResource("1_1i2ve")
+font_size = 50
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)

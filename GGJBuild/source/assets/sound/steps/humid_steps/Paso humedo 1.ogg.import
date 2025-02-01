@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bg8aci02sxmb3"
+path="res://.godot/imported/Paso humedo 1.ogg-e980a4187ee90677214369559abc320f.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sound/steps/humid_steps/Paso humedo 1.ogg"
+dest_files=["res://.godot/imported/Paso humedo 1.ogg-e980a4187ee90677214369559abc320f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhr136mc1qrjy"]
+
+[ext_resource type="Texture2D" uid="uid://cre0blo5wte0n" path="res://icon.svg" id="1_asnt7"]
+[ext_resource type="Script" path="res://scenes/furniture/furniture.gd" id="1_jkkem"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gslx7"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_voten"]
+size = Vector2(125, 124)
+
+[node name="Furniture" type="StaticBody2D"]
+y_sort_enabled = true
+collision_layer = 16
+collision_mask = 16
+physics_material_override = SubResource("PhysicsMaterial_gslx7")
+script = ExtResource("1_jkkem")
+
+[node name="Placeholder" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_asnt7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_voten")
