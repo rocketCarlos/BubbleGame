@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://de5r7nvfqvvx1" path="res://assets/cover.png" id="1_dn8y0"]
 [ext_resource type="Script" path="res://scenes/MainMenu/main_menu.gd" id="1_m2d8u"]
 [ext_resource type="PackedScene" uid="uid://b7cnerafwfr02" path="res://scenes/cutscene/cutscene.tscn" id="2_cmpvv"]
-[ext_resource type="Texture2D" uid="uid://dbhiufgqifut2" path="res://assets/MainMenu/IMG_7255.png" id="2_sasyg"]
-[ext_resource type="Texture2D" uid="uid://bdencaq5mgln3" path="res://assets/MainMenu/IMG_7259.png" id="3_p68yh"]
-[ext_resource type="Texture2D" uid="uid://ndrpmvjbi5bi" path="res://assets/MainMenu/IMG_7256.png" id="4_cwcwh"]
+[ext_resource type="Texture2D" uid="uid://saw2xvv2sim8" path="res://assets/MainMenu/IMG_7270.png" id="3_1ivk7"]
+[ext_resource type="Texture2D" uid="uid://bf8jdq3e6k5sy" path="res://assets/MainMenu/IMG_7272.png" id="4_7ba00"]
+[ext_resource type="Texture2D" uid="uid://1g4r2oss2rvo" path="res://assets/MainMenu/IMG_7271.png" id="5_r6aj2"]
 [ext_resource type="Texture2D" uid="uid://c11awclj3gv22" path="res://assets/MainMenu/IMG_7257.png" id="5_v2fum"]
 [ext_resource type="Texture2D" uid="uid://cjbctn6r86rrr" path="res://assets/MainMenu/IMG_7260.png" id="6_k07mq"]
 [ext_resource type="Texture2D" uid="uid://douessq5eypgy" path="res://assets/MainMenu/IMG_7258.png" id="7_f74hy"]
@@ -18,13 +18,13 @@ texture = ExtResource("1_dn8y0")
 centered = false
 
 [node name="Start" type="TextureButton" parent="Sprite2D"]
-offset_left = 1284.0
-offset_top = 143.0
-offset_right = 1871.0
-offset_bottom = 499.0
-texture_normal = ExtResource("2_sasyg")
-texture_pressed = ExtResource("3_p68yh")
-texture_hover = ExtResource("4_cwcwh")
+offset_left = 1245.0
+offset_top = 76.0
+offset_right = 1949.0
+offset_bottom = 559.0
+texture_normal = ExtResource("3_1ivk7")
+texture_pressed = ExtResource("4_7ba00")
+texture_hover = ExtResource("5_r6aj2")
 
 [node name="Credits" type="TextureButton" parent="Sprite2D"]
 offset_left = 1305.0
