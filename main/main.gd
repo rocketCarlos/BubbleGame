@@ -5,6 +5,7 @@ extends Node2D
 @onready var camera = $Player/Camera2D
 @onready var breaking_sound = $BreakingPlayer
 @onready var clock = $Player/HUD/Container/Clock/Timer
+@onready var music = $BackgroundMusic
 
 const MIN_SPEED = 0
 @onready var MAX_SPEED = player.MAX_SPEED
@@ -20,6 +21,8 @@ var money: float = 0.0
 
 var final_type: String = ''
 
+var level_ended: bool = false
+
 # Called when thecheats node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.no_water.connect(_on_no_water)
@@ -30,10 +33,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var vel_factor = Tween.interpolate_value(0.0, 1.0, player.velocity.length(), MAX_SPEED, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
-	#var vel_factor = Tween.interpolate_value(0.0, 1.0, player.velocity.length(), MAX_SPEED, Tween.TRANS_BACK, Tween.EASE_IN)
-	var zoom = lerp(MIN_ZOOM, MAX_ZOOM, vel_factor)
-	camera.zoom = Vector2(zoom, zoom)
+	if not level_ended:
+		var vel_factor = Tween.interpolate_value(0.0, 1.0, player.velocity.length(), MAX_SPEED, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+		#var vel_factor = Tween.interpolate_value(0.0, 1.0, player.velocity.length(), MAX_SPEED, Tween.TRANS_BACK, Tween.EASE_IN)
+		var zoom = lerp(MIN_ZOOM, MAX_ZOOM, vel_factor)
+		camera.zoom = Vector2(zoom, zoom)
 
 #region signal functions
 func _on_penalty() -> void:
@@ -53,15 +57,21 @@ func _on_no_water() -> void:
 		await get_tree().create_timer(0.1).timeout
 
 func _on_level_ended() -> void:
+	level_ended = true
 	if Globals.clean_level < 100:
 		final_type = 'loss'
 	else:
 		money = GOLD_VICTORY + GOLD_EXTRA_PER_SECOND * clock.time_left + GOLD_PENALTY * penalties
-		if money >= GOLD_VICTORY:
-			final_type = 'succes_and_money'
+		print(money)
+		if money >= GOLD_GOAL:
+			final_type = 'success_and_money'
 		else:
-			final_type = 'succes_no_money'
+			final_type = 'success_no_money'
 
+	player.call_deferred("queue_free")
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "modulate", Color(0.44, 0.44, 0.44), 1)
+	tween.parallel().tween_property(music, "volume_db", -24, 1)
 	Globals.game_ended.emit()
 	
 #endregion

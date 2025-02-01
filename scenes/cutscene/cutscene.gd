@@ -1,25 +1,31 @@
 extends AnimatedSprite2D
 
 @onready var intro_music = $IntroPlayer
-
+@export var menu_scene: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	animation = "initial"
 	frame = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if animation == "initial" and not intro_music.playing:
+	if not intro_music.playing:
 		intro_music.play()
 	
 	if Input.is_action_just_released("accelerate"):
-		if frame == 4:
+		if frame == 4 and animation == "initial" or frame == 1 and animation == "final":
 			var tween = get_tree().create_tween()
 			tween.tween_property(self, "modulate", Color.TRANSPARENT, 1)
 			tween.parallel().tween_property(intro_music, "volume_db", -80, 1)
 			await tween.finished
-			Globals.start_game.emit()
+			
+			if animation == "initial":
+				Globals.start_game.emit()
+			elif animation == "final":
+				var menu_instance = menu_scene.instantiate()
+				menu_instance.case = menu_instance.cases.AFTER_BUYING
+				call_deferred("add_sibling", menu_instance)
+				
 		frame += 1
 		

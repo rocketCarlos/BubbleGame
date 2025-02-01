@@ -28,6 +28,9 @@ var case: cases
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "position", Vector2(956.0, 517.0), 1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	
 	hide_all()
 	
 	value_base_money.text = Globals.final_menu_values['value_base_money']
@@ -77,7 +80,6 @@ func disable_all() -> void:
 	button_buy.disabled = true
 	
 func exit_animation() -> void:
-	print("exiting")
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "modulate", Color.TRANSPARENT, 1)
 	await tween.finished

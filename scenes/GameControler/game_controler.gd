@@ -33,6 +33,10 @@ func _on_start_game() -> void:
 		cutscene_instance.queue_free()
 		cutscene_instance = null
 		
+	if main_instance:
+		main_instance.call_deferred("queue_free")
+		main_instance = null
+		
 	main_instance = main.instantiate()
 	call_deferred("add_child", main_instance)
 
@@ -51,19 +55,24 @@ func _on_game_ended() -> void:
 		'loss':
 			final_menu_instance.case = final_menu_instance.cases.LOSS
 		'success_and_money':
-			final_menu_instance.case = final_menu_instance.case.SUCCESS_AND_MONEY
+			final_menu_instance.case = final_menu_instance.cases.SUCCESS_AND_MONEY
 		'success_no_money':
-			final_menu_instance.case = final_menu_instance.case.SUCCESS_NO_MONEY
+			final_menu_instance.case = final_menu_instance.cases.SUCCESS_NO_MONEY
 	
 	
 	call_deferred("add_child", final_menu_instance) 
+
+		
+func _on_buy_bubble_maker() -> void:
+	Globals.level += 1
 	
 	if main_instance:
 		main_instance.call_deferred("queue_free")
 		main_instance = null
-		
-func _on_buy_bubble_maker() -> void:
-	pass
+	
+	cutscene_instance = cutscene.instantiate()
+	cutscene_instance.animation = "final"
+	call_deferred("add_child", cutscene_instance)
 	
 func _on_title_screen() -> void:
 	cutscene_instance = cutscene.instantiate()

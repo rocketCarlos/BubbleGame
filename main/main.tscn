@@ -86,9 +86,11 @@ position_smoothing_enabled = true
 position_smoothing_speed = 2.5
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("9_j8oke")
 volume_db = -12.0
 autoplay = true
 
 [node name="BreakingPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = SubResource("AudioStreamRandomizer_ah8b5")

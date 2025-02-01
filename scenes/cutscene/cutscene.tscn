@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b7cnerafwfr02"]
+[gd_scene load_steps=18 format=3 uid="uid://b7cnerafwfr02"]
 
 [ext_resource type="Texture2D" uid="uid://hprkdbnyp5jq" path="res://assets/cutscenes/intro 1.png" id="1_cunqn"]
 [ext_resource type="Texture2D" uid="uid://cyx14bfq6i84h" path="res://assets/cutscenes/1.png" id="1_gef6u"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cw3u4pnytn4dx" path="res://assets/cutscenes/pistola 5.png" id="5_sywty"]
 [ext_resource type="Texture2D" uid="uid://de5r7nvfqvvx1" path="res://assets/cover.png" id="6_kjuul"]
 [ext_resource type="Texture2D" uid="uid://drwp7yhfw6nm0" path="res://assets/cutscenes/raton pequeño 2.png" id="6_vittq"]
+[ext_resource type="PackedScene" uid="uid://do6rewmngh1h1" path="res://scenes/FinalMenu/final_menu.tscn" id="12_wu7qd"]
 [ext_resource type="AudioStream" uid="uid://d27kydqxv2tly" path="res://assets/sound/Intro.ogg" id="14_50g8n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6k8iw"]
@@ -74,9 +75,10 @@ animations = [{
 
 [node name="Cutscene" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_6k8iw")
-animation = &"initial"
+animation = &"final"
 centered = false
 script = ExtResource("5_durnt")
+menu_scene = ExtResource("12_wu7qd")
 
 [node name="TextureButton" type="AnimatedSprite2D" parent="."]
 position = Vector2(89, 943)
